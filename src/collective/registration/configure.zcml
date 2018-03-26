@@ -14,6 +14,7 @@
   <!--<includeDependencies package="." />-->
 
   <include package=".browser" />
+  <include package=".content" />
   <include package="collective.schedulefield" />
   <include file="permissions.zcml" />
 
