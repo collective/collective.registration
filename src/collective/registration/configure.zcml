@@ -13,11 +13,12 @@
   -->
   <!--<includeDependencies package="." />-->
 
+  <include package="Products.PloneFormGen" />
+  <include package="collective.schedulefield" />
+
   <include package=".browser" />
   <include package=".content" />
-  <include package="collective.schedulefield" />
   <include file="permissions.zcml" />
-
   <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
