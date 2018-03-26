@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from plone import api
 from plone.dexterity.content import Container
 from plone.supermodel import model
 from zope.interface import implementer
+
+from collective.registration import _
 
 
 class IRegistration(model.Schema):
@@ -24,5 +27,40 @@ def create_event_event(object, event):
         parent = object.aq_parent
         parent.manage_addProperty('default_page', object.id, 'string')
         behavior = ISelectableConstrainTypes(parent)
+        create_registration_form(parent)
         behavior.setConstrainTypesMode(1)
         behavior.setImmediatelyAddableTypes(('period',))
+
+
+def create_registration_form(portal):
+    form = api.content.create(
+        type='FormFolder',
+        title='Registration',
+        container=portal)
+    api.content.delete(obj=form['topic'])
+    api.content.delete(obj=form['thank-you'])
+    # api.content.delete(obj=form['mailer'])
+
+    last_name = api.content.create(
+        type='FormStringField',
+        title=_(u'Last name'),
+        required=True,
+        container=form)
+
+    first_name = api.content.create(
+        type='FormStringField',
+        title=_(u'first name'),
+        required=True,
+        container=form)
+
+    nb_available_places = api.content.create(
+        type='FormIntegerField',
+        title=_(u'Number available places'),
+        required=True,
+        default=0,
+        container=form)
+
+    form.moveObjectToPosition(last_name.id, 0)
+    form.moveObjectToPosition(first_name.id, 1)
+    form.moveObjectToPosition('replyto', 2)
+    form.moveObjectToPosition(nb_available_places.id, 3)

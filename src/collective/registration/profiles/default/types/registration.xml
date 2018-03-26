@@ -22,6 +22,7 @@
   <property name="allowed_content_types">
     <element value="period"/>
     <element value="Event"/>
+    <element value="FormFolder"/>
   </property>
   <property name="filter_content_types">True</property>
   <property name="global_allow">True</property>
