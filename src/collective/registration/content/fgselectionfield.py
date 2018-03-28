@@ -55,7 +55,7 @@ def dict_list_2_vocabulary(dict_list):
 class PeriodVocabularyFactory(object):
 
     def __call__(self, context):
-        registration = context.aq_parent.aq_parent
+        registration = context.aq_parent
         values = []
         if IRegistration.providedBy(registration):
             periods = api.content.find(context=registration, portal_type='period')
