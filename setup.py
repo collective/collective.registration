@@ -45,6 +45,8 @@ setup(
         'setuptools',
         'z3c.jbot',
         'collective.schedulefield',
+        'Products.PloneFormGen',
+
     ],
     extras_require={
         'test': [
