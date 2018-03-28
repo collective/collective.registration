@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INonInstallable
+from Products.PloneFormGen.interfaces.field import IPloneFormGenField
 from zope.interface import implementer
 
 
@@ -15,7 +17,16 @@ class HiddenProfiles(object):
 
 def post_install(context):
     """Post install script"""
-    # Do something at the end of the installation of this package.
+    from plone import api
+    site = api.portal.get()
+    # get a list of installed meta types
+    ptt = getToolByName(site, 'portal_types')
+    allowed_content_types = ptt.getTypeInfo('FormFolder').allowed_content_types
+    allowed_content_types += ('FormSelectionPeriodField',)
+    ptt.getTypeInfo('FormFolder').manage_changeProperties(
+        allowed_content_types = allowed_content_types
+    )
+
 
 
 def uninstall(context):

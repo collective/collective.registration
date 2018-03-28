@@ -1,0 +1,1 @@
+from collective.registration.content import fgselectionfield

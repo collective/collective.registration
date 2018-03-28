@@ -28,8 +28,23 @@ def create_event_event(object, event):
         parent.manage_addProperty('default_page', object.id, 'string')
         behavior = ISelectableConstrainTypes(parent)
         create_registration_form(parent)
+        create_pfg_registration(parent)
         behavior.setConstrainTypesMode(1)
         behavior.setImmediatelyAddableTypes(('period',))
+
+
+def create_pfg_registration(portal):
+    form = api.content.create(
+        type='FormFolder',
+        title=_(u'Period selection'),
+        container=portal)
+
+    periods = api.content.create(
+        type='FormSelectionPeriodField',
+        title=_(u'Period field'),
+        required=True,
+        container=form
+    )
 
 
 def create_registration_form(portal):

@@ -4,4 +4,5 @@
   <!--<object name="example_ct" meta_type="Dexterity FTI"/>-->
   <object meta_type="Dexterity FTI" name="period"/>
   <object meta_type="Dexterity FTI" name="registration"/>
+  <object meta_type="Factory-based Type Information with dynamic views" name="FormSelectionPeriodField"/>
 </object>
