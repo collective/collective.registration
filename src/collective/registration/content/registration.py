@@ -8,6 +8,15 @@ from collective.registration import _
 from collective.registration.interfaces import IRegistration
 from Products.statusmessages.interfaces import IStatusMessage
 
+SCRIPT = """
+## Python Script
+##bind container=container
+##bind context=context
+##bind subpath=traverse_subpath
+##parameters=fields, ploneformgen, request
+##title=
+##
+ploneformgen.restrictedTraverse('add_subscriber')(ploneformgen, fields)"""
 
 @implementer(IRegistration)
 class Registration(Container):
@@ -43,7 +52,15 @@ def create_registration_form(portal):
         title='Registration',
         container=portal)
     api.content.delete(obj=form['topic'])
-    # api.content.delete(obj=form['mailer'])
+    api.content.delete(obj=form['thank-you'])
+
+    subscriber_field = api.content.create(
+        type='FormCustomScriptAdapter',
+        title=_(u'Add subscriber'),
+        container=form
+    )
+    subscriber_field.updateScript(SCRIPT, 'none')
+
     last_name = api.content.create(
         type='FormStringField',
         title=_(u'Last name'),
