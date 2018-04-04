@@ -8,6 +8,7 @@ from collective.registration import _
 from collective.registration.interfaces import IRegistration
 from Products.statusmessages.interfaces import IStatusMessage
 
+
 @implementer(IRegistration)
 class Registration(Container):
     """
@@ -43,7 +44,6 @@ def create_registration_form(portal):
         container=portal)
     api.content.delete(obj=form['topic'])
     # api.content.delete(obj=form['mailer'])
-
     last_name = api.content.create(
         type='FormStringField',
         title=_(u'Last name'),
