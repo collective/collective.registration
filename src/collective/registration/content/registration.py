@@ -2,14 +2,10 @@
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from plone import api
 from plone.dexterity.content import Container
-from plone.supermodel import model
 from zope.interface import implementer
 
 from collective.registration import _
-
-
-class IRegistration(model.Schema):
-    pass
+from collective.registration.interfaces import IRegistration
 
 
 @implementer(IRegistration)
@@ -26,8 +22,8 @@ def create_event_event(object, event):
     if IRegistration.providedBy(object.aq_parent):
         parent = object.aq_parent
         parent.manage_addProperty('default_page', object.id, 'string')
-        behavior = ISelectableConstrainTypes(parent)
         create_registration_form(parent)
+        behavior = ISelectableConstrainTypes(parent)
         behavior.setConstrainTypesMode(1)
         behavior.setImmediatelyAddableTypes(('period',))
 

@@ -8,6 +8,7 @@ from Products.PloneFormGen.content.fieldsBase import View
 from Products.PloneFormGen.content.fieldsBase import registerATCT
 from plone import api
 from zope.schema.vocabulary import SimpleVocabulary
+from collective.registration.utils import aivability_registration
 
 from collective.registration import _
 from collective.registration.content.registration import IRegistration
@@ -61,15 +62,15 @@ class PeriodVocabularyFactory(object):
             periods = api.content.find(context=registration, portal_type='period')
             for period in periods:
                 obj = period.getObject()
-                key = obj.id
-                title = obj.title
-                start_date = obj.start.strftime('%d/%m/%Y')
-                end_date = obj.end.strftime('%d/%m/%Y')
-                value = _("{0} du {1} au {2}".format(title, start_date, end_date))
-                item = dict()
-                item[key] = value
-                values.append(item)
-                print
+                if aivability_registration(obj):
+                    key = obj.id
+                    title = obj.title
+                    start_date = obj.start.strftime('%d/%m/%Y')
+                    end_date = obj.end.strftime('%d/%m/%Y')
+                    value = _("{0} du {1} au {2}".format(title, start_date, end_date))
+                    item = dict()
+                    item[key] = value
+                    values.append(item)
 
         return dict_list_2_vocabulary(values)
 
