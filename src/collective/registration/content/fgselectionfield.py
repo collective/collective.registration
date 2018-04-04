@@ -63,11 +63,13 @@ class PeriodVocabularyFactory(object):
             for period in periods:
                 obj = period.getObject()
                 if aivability_registration(obj):
+                    # TODO recovery nb_place_available here
+                    nb_place_available = 0
                     key = obj.id
                     title = obj.title
                     start_date = obj.start.strftime('%d/%m/%Y')
                     end_date = obj.end.strftime('%d/%m/%Y')
-                    value = _("{0} du {1} au {2}".format(title, start_date, end_date))
+                    value = _("{0} from {1} to {2} with {3} places available".format(title, start_date, end_date, str(nb_place_available)))
                     item = dict()
                     item[key] = value
                     values.append(item)
