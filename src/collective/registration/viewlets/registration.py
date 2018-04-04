@@ -15,9 +15,14 @@ class RegistrationViewlet(base.ViewletBase):
         else:
             return False
 
-    def url(self):
-        registration = api.content.find(context=self.parent, portal_type='FormFolder')[0]
-        return registration.getURL()
+    def subscription_url(self):
+        subscription = api.content.find(context=self.parent, portal_type='FormFolder')[0]
+        return subscription.getURL()
+
+    def period_url(self):
+        registration_url = api.content.find(context=self.parent, portal_type='registration')[0].getURL()
+        url = "{0}/++add++period".format(registration_url)
+        return url
 
     def aivability_registration(self):
         # des périodes dans le future + place disponible
