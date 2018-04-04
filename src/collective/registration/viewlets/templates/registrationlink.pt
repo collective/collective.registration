@@ -10,6 +10,10 @@
       Warning, there are no available periods for this event. Please create one to access
       reservations.
     </div>
+    <br>
+    <div tal:condition="not: aivability_registration" class="warning_no_period">
+      <span i18n:translate="">You can create one</span> <a tal:attributes="href python:view.period_url()">here</a>
+    </div>
 
   </div>
 
