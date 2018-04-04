@@ -35,6 +35,10 @@ class IPeriod(model.Schema):
         title=_(u'end date'),
     )
 
+    nb_place = schema.Int(
+        title=_(u'Number of places'),
+    )
+
 
 @implementer(IPeriod)
 class Period(Container):
