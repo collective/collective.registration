@@ -34,7 +34,6 @@ def create_registration_form(portal):
         title='Registration',
         container=portal)
     api.content.delete(obj=form['topic'])
-    api.content.delete(obj=form['thank-you'])
     # api.content.delete(obj=form['mailer'])
 
     last_name = api.content.create(
