@@ -18,8 +18,8 @@ class ISubscriber(model.Schema):
         required=True
     )
 
-    fist_name = schema.TextLine(
-        title=_(u'Fist name'),
+    first_name = schema.TextLine(
+        title=_(u'First name'),
         required=True
     )
 

@@ -16,6 +16,14 @@
       name="collective.registration"
       type="plone"
       directory="static"
-      />
+    />
+
+  <browser:page
+    name="add_subscriber"
+    for="*"
+    class=".subscriber.SubscriberView"
+    attribute="add_subscriber"
+    permission="zope2.View"
+    />
 
 </configure>
