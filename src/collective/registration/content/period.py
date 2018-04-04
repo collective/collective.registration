@@ -13,15 +13,6 @@ class IPeriod(model.Schema):
     """ Marker interface and Dexterity Python Schema for Period
     """
 
-    title = schema.TextLine(
-        title=_(u'Title'),
-        description=_(u'Session title'),
-    )
-
-    description = schema.Text(
-        title=_(u'Description'),
-    )
-
     details = RichText(
         title=_(u'Details'),
         required=False
