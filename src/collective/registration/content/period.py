@@ -7,6 +7,7 @@ from plone.supermodel import model
 from zope.interface import implementer
 
 from collective.registration import _
+from collective.registration.interfaces import IRegistration
 
 
 class IPeriod(model.Schema):
@@ -35,3 +36,9 @@ class IPeriod(model.Schema):
 class Period(Container):
     """
     """
+
+
+def create_period_event(object, event):
+    if IRegistration.providedBy(object.aq_parent):
+        registration = object.aq_parent
+        object.REQUEST.RESPONSE.redirect(registration.absolute_url())

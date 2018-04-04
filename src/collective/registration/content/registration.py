@@ -6,7 +6,7 @@ from zope.interface import implementer
 
 from collective.registration import _
 from collective.registration.interfaces import IRegistration
-
+from Products.statusmessages.interfaces import IStatusMessage
 
 @implementer(IRegistration)
 class Registration(Container):
@@ -16,6 +16,14 @@ class Registration(Container):
 
 def create_registration_event(object, event):
     object.REQUEST.RESPONSE.redirect(object.absolute_url() + '/++add++Event?')
+
+
+def event_add_cancelled_event(object, event):
+    url = object.aq_parent.absolute_url()
+    messages = IStatusMessage(object.REQUEST)
+    messages.add(u"The creation of registration has cancelled", type=u"info")
+    api.content.delete(obj=object)
+    object.REQUEST.RESPONSE.redirect(url)
 
 
 def create_event_event(object, event):

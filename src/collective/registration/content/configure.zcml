@@ -17,6 +17,19 @@
     handler=".registration.create_event_event"
   />
 
+  <subscriber
+    for=".registration.IRegistration
+         plone.dexterity.interfaces.IAddCancelledEvent"
+    handler=".registration.event_add_cancelled_event"
+  />
+
+  <subscriber
+    for=".period.IPeriod
+         zope.lifecycleevent.IObjectAddedEvent"
+    handler=".period.create_period_event"
+  />
+
+
   <utility
     component=".fgselectionfield.PeriodVocabulary"
     name="collective.registration.vocabularies.period"
