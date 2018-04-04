@@ -1,0 +1,16 @@
+<div tal:condition="python: view.is_authorized()">
+
+  <div tal:define="aivability_registration python: view.aivability_registration()">
+
+    <div tal:condition="aivability_registration">
+      Vous pouvez réservé pour cette événement via ce lien : <a tal:attributes="href python:view.url()">lien</a>
+    </div>
+
+    <div tal:condition="not: aivability_registration" class="warning_no_period" i18n:translate="">
+      Attention, il existe aucune période disponible pour cette événement. Veuillez en créer une pour accéder aux
+      réservations.
+    </div>
+
+  </div>
+
+</div>
