@@ -24,7 +24,8 @@ def post_install(context):
     allowed_content_types = ptt.getTypeInfo('FormFolder').allowed_content_types
     allowed_content_types += ('FormSelectionPeriodField',)
     ptt.getTypeInfo('FormFolder').manage_changeProperties(
-        allowed_content_types = allowed_content_types
+        allowed_content_types=allowed_content_types,
+        excludeFromNav=1
     )
 
 

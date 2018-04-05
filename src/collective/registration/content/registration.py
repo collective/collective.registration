@@ -18,6 +18,7 @@ SCRIPT = """
 ##
 ploneformgen.restrictedTraverse('add_subscriber')(ploneformgen, fields)"""
 
+
 @implementer(IRegistration)
 class Registration(Container):
     """
@@ -52,10 +53,11 @@ def create_registration_form(portal):
         title='Registration',
         container=portal)
     api.content.delete(obj=form['topic'])
-    form['thank-you'].showAll = False
-    # does not work for moment
-    # form['thank-you']._md['description'].raw = 'foo'
-    #api.content.delete(obj=form['thank-you'])
+    setattr(form, 'actionAdapter', ())
+
+    form['thank-you'].setShowAll(False)
+    form['thank-you'].setDescription(_(u'Thank you for your registration'))
+    form['comments'].setRequired(False)
 
     subscriber_field = api.content.create(
         type='FormCustomScriptAdapter',
