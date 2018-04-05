@@ -14,11 +14,6 @@ class IPeriod(model.Schema):
     """ Marker interface and Dexterity Python Schema for Period
     """
 
-    details = RichText(
-        title=_(u'Details'),
-        required=False
-    )
-
     start = schema.Date(
         title=_(u'Start date'),
     )
