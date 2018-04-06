@@ -19,7 +19,7 @@ class IPeriod(model.Schema):
     )
 
     end = schema.Date(
-        title=_(u'end date'),
+        title=_(u'End date'),
     )
 
     nb_places = schema.Int(

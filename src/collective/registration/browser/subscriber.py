@@ -33,4 +33,4 @@ class SubscriberView(BrowserView):
         period = registration.get(request.form.get('period'))
         if int(value) < period.available_places:
             return False
-        return _('Not enough space in the selected period')
+        return _('Not enough places left in the selected period')
