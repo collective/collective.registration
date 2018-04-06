@@ -29,6 +29,12 @@
     handler=".period.create_period_event"
   />
 
+  <subscriber
+    for=".period.IPeriod
+         zope.lifecycleevent.IObjectModifiedEvent"
+    handler=".period.create_period_event"
+  />
+
 
   <utility
     component=".fgselectionfield.PeriodVocabulary"

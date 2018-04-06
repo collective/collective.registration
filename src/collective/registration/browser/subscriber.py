@@ -2,6 +2,7 @@
 
 from Products.Five import BrowserView
 from plone import api
+from collective.registration import _
 
 
 class SubscriberView(BrowserView):
@@ -21,3 +22,11 @@ class SubscriberView(BrowserView):
         subscriber.mail = fields.get('replyto')
         subscriber.number_of_persons = int(fields.get('number-available-places'))
         subscriber.reindexObject()
+
+        container.available_place -= int(fields.get('number-available-places'))
+
+    def available_place_validator(self, context, request, value):
+        period = context.getParentNode().getParentNode().get(request.form.get('period-field'))
+        if int(value) < period.available_place:
+            return False
+        return _('Not enough space in the selected period')

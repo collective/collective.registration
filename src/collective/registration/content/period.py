@@ -4,6 +4,7 @@ from plone.dexterity.content import Container
 from plone.supermodel import model
 from zope import schema
 from zope.interface import implementer
+from zope.lifecycleevent import ObjectModifiedEvent
 
 from collective.registration import _
 from collective.registration.interfaces import IRegistration
@@ -33,6 +34,11 @@ class Period(Container):
 
 
 def create_period_event(object, event):
-    if IRegistration.providedBy(object.aq_parent):
-        registration = object.aq_parent
-        object.REQUEST.RESPONSE.redirect(registration.absolute_url())
+    if type(event) == ObjectModifiedEvent:
+        if len(event.descriptions) > 0:
+            object.available_place = object.nb_place
+    else:
+        object.available_place = object.nb_place
+        if IRegistration.providedBy(object.aq_parent):
+            registration = object.aq_parent
+            object.REQUEST.RESPONSE.redirect(registration.absolute_url())

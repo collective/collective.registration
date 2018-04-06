@@ -11,10 +11,6 @@ def aivability_registration(period):
 
 
 def nb_place_available(period):
-    """
-    method for calculate number place available
-    TODO make this; return always true for wip
-    :param period:
-    :return: True if place available False if not
-    """
-    return True
+    if period.available_place > 0:
+        return True
+    return False
