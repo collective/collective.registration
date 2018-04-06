@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-04 14:35+0000\n"
+"POT-Creation-Date: 2018-04-06 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,70 +14,87 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../content/period.py:18
-msgid "Details"
-msgstr ""
+#: ../content/registration.py:72
+msgid "Add subscriber"
+msgstr "Ajouter un inscrit"
 
 #: ../profiles/default/types/period.xml
 msgid "Edit"
 msgstr ""
 
-#: ../configure.zcml:31
-msgid "Installs the collective.registration add-on."
+#: ../content/subscriber.py:27
+msgid "Email"
 msgstr ""
 
-#: ../content/registration.py:49
+#: ../content/period.py:22
+msgid "End date"
+msgstr "Date de fin"
+
+#: ../content/registration.py:79
+#: ../content/subscriber.py:17
+msgid "First name"
+msgstr "Prénom"
+
+#: ../content/registration.py:85
+#: ../content/subscriber.py:22
 msgid "Last name"
-msgstr ""
+msgstr "Nom"
 
-#: ../content/registration.py:61
-msgid "Number available places"
-msgstr ""
+#: ../browser/subscriber.py:36
+msgid "Not enough places left in the selected period"
+msgstr "Il n'y a plus assez de places pour la période choisie"
 
-#: ../content/period.py:31
-msgid "Number of places"
-msgstr ""
+#: ../content/period.py:26
+msgid "Number of available places"
+msgstr "Nombre de places disponibles"
 
+#: ../content/registration.py:91
+#: ../content/subscriber.py:32
+msgid "Number of people"
+msgstr "Nombre de personnes"
+
+#: ../content/registration.py:100
 #: ../profiles/default/types/period.xml
 msgid "Period"
-msgstr ""
+msgstr "Période"
 
-#: ../content/registration.py:68
-msgid "Period field"
-msgstr ""
-
-#: ../content/period.py:23
+#: ../content/period.py:18
 msgid "Start date"
-msgstr ""
+msgstr "Date de début"
 
-#: ../configure.zcml:40
-msgid "Uninstalls the collective.registration add-on."
-msgstr ""
+#: ../content/registration.py:66
+msgid "Thank you for your registration"
+msgstr "Merci pour votre inscription"
+
+#: ../content/registration.py:40
+msgid "The creation of registration has been cancelled"
+msgstr "La création de l'événement avec inscription a été annulée"
+
+#: ../viewlets/templates/registrationlink.pt:13
+msgid "There are no available periods for this event. Please add period(s) to allow subscriptions."
+msgstr "Il n'y a pas de période disponible pour cet événement. Veuillez ajouter une période pour activer les inscriptions."
 
 #: ../profiles/default/types/period.xml
 msgid "View"
 msgstr ""
 
-#: ../configure.zcml:31
-msgid "collective.registration"
-msgstr ""
+#: ../viewlets/templates/registrationlink.pt:17
+msgid "You can create a new period by"
+msgstr "Vous pouvez créer une période en"
 
-#: ../configure.zcml:40
-msgid "collective.registration (uninstall)"
-msgstr ""
+#: ../viewlets/templates/registrationlink.pt:7
+msgid "You can subscribe to this event by"
+msgstr "Vous pouvez vous inscrire à cet événement en"
 
-#: ../content/period.py:27
-msgid "end date"
-msgstr ""
-
-#: ../content/registration.py:55
-msgid "first name"
-msgstr ""
+#: ../viewlets/templates/registrationlink.pt:8
+msgid "clicking here"
+msgstr "cliquant ici"
 
 #: ../profiles/default/types/period.xml
 msgid "period of event"
-msgstr ""
+msgstr "Période pour un événement"
 
-#: ../content/fgselectionfield.py:72
-msgid "{0} from {1} to {2} with {3} places available"
-msgstr ""
+#: ../content/fgselectionfield.py:78
+msgid "{0} (from {1} to {2} - {3} place(s) left)"
+msgstr "{0} (du {1} au {2} - {3} place(s) disponible(s))"
+
