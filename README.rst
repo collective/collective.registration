@@ -6,25 +6,15 @@
 collective.registration
 =======================
 
-Tell me what your product does
+This products allows you to add events to which visitors can register.
+
 
 Features
 --------
 
-- Can be bullet points
-
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+- Uses PloneFormGen to allow you to customize the form that visitors must fill
+- Handles multiple date / time periods for events
+- Handles available places by period
 
 
 Translations
@@ -32,7 +22,7 @@ Translations
 
 This product has been translated into
 
-- Klingon (thanks, K'Plai)
+- French
 
 
 Installation
@@ -56,14 +46,6 @@ Contribute
 
 - Issue Tracker: https://github.com/collective/collective.registration/issues
 - Source Code: https://github.com/collective/collective.registration
-- Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
 
 
 License
@@ -81,4 +63,4 @@ This package was developed by `Affinitic team <https://github.com/affinitic>`_.
    :alt: Affinitic website
    :target: http://www.affinitic.be
 
-``affinitic.tools`` is licensed under GNU General Public License, version 2.
+``collective.registration`` is licensed under GNU General Public License, version 2.
