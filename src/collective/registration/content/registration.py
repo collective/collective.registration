@@ -59,6 +59,7 @@ def create_registration_form(portal):
     form['thank-you'].setShowAll(False)
     form['thank-you'].setDescription(_(u'Thank you for your registration'))
     form['comments'].setRequired(False)
+    form.setExcludeFromNav(1)
 
     subscriber_field = api.content.create(
         type='FormCustomScriptAdapter',
