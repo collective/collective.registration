@@ -21,3 +21,5 @@ class SubscriberView(BrowserView):
         subscriber.mail = fields.get('replyto')
         subscriber.number_of_persons = int(fields.get('number-available-places'))
         subscriber.reindexObject()
+
+        container.available_place -= int(fields.get('number-available-places'))

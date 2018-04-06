@@ -64,8 +64,7 @@ class PeriodVocabularyFactory(object):
             for period in periods:
                 obj = period.getObject()
                 if aivability_registration(obj):
-                    # TODO recovery nb_place_available here
-                    nb_place_available = 0
+                    nb_place_available = obj.available_place
                     key = obj.id
                     title = obj.title
                     start_date = obj.start.strftime('%d/%m/%Y')
