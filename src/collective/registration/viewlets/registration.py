@@ -1,10 +1,11 @@
-# encoding: utf-8
-from plone import api
+# -*- coding: utf-8 -*-
 
+from plone import api
 from plone.app.layout.viewlets import common as base
+
 from collective.registration.interfaces import IRegistration
-from datetime import datetime
 from collective.registration.utils import aivability_registration
+
 
 class RegistrationViewlet(base.ViewletBase):
 

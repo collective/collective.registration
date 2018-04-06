@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
+
 from plone import api
-from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
+from plone.app.testing import setRoles
 from plone.dexterity.interfaces import IDexterityFTI
-from collective.registration.content.period import IPeriod
-from collective.registration.testing import COLLECTIVE_REGISTRATION_INTEGRATION_TESTING  # noqa
 from zope.component import createObject
 from zope.component import queryUtility
-
 import unittest
+
+from collective.registration.content.period import IPeriod
+from collective.registration.testing import COLLECTIVE_REGISTRATION_INTEGRATION_TESTING  # noqa
 
 
 class PeriodIntegrationTest(unittest.TestCase):

@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from zope import schema
 
-from plone.app.textfield import RichText
 from plone.dexterity.content import Container
 from plone.supermodel import model
+from zope import schema
 from zope.interface import implementer
 
 from collective.registration import _

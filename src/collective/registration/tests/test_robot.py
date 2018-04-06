@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+
 from plone.app.testing import ROBOT_TEST_LEVEL
 from plone.testing import layered
-from collective.registration.testing import COLLECTIVE_REGISTRATION_ACCEPTANCE_TESTING  # noqa
-
 import os
 import robotsuite
 import unittest
+
+from collective.registration.testing import COLLECTIVE_REGISTRATION_ACCEPTANCE_TESTING  # noqa
 
 
 def test_suite():

@@ -1,4 +1,5 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
+
 from Products.PloneFormGen.content.fields import FGSelectionField
 from Products.PloneFormGen.content.fieldsBase import BaseFieldSchemaStringDefault
 from Products.PloneFormGen.content.fieldsBase import PROJECTNAME
@@ -8,10 +9,10 @@ from Products.PloneFormGen.content.fieldsBase import View
 from Products.PloneFormGen.content.fieldsBase import registerATCT
 from plone import api
 from zope.schema.vocabulary import SimpleVocabulary
-from collective.registration.utils import aivability_registration
 
 from collective.registration import _
 from collective.registration.content.registration import IRegistration
+from collective.registration.utils import aivability_registration
 
 
 class FGSelectionPeriodField(FGSelectionField):

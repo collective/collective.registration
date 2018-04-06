@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
+
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from Products.statusmessages.interfaces import IStatusMessage
 from plone import api
 from plone.dexterity.content import Container
 from zope.interface import implementer
 
 from collective.registration import _
 from collective.registration.interfaces import IRegistration
-from Products.statusmessages.interfaces import IStatusMessage
 
 SCRIPT = """
 ## Python Script

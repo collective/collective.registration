@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INonInstallable
-from Products.PloneFormGen.interfaces.field import IPloneFormGenField
 from zope.interface import implementer
 
 
@@ -27,7 +27,6 @@ def post_install(context):
         allowed_content_types=allowed_content_types,
         excludeFromNav=1
     )
-
 
 
 def uninstall(context):

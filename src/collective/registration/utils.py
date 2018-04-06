@@ -1,4 +1,5 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
+
 from datetime import datetime
 
 
@@ -7,6 +8,7 @@ def aivability_registration(period):
         if nb_place_available(period):
             return True
     return False
+
 
 def nb_place_available(period):
     """
