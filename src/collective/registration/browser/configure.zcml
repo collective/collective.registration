@@ -26,4 +26,12 @@
     permission="zope2.View"
     />
 
+  <browser:page
+    name="available_place_validator"
+    for="*"
+    class=".subscriber.SubscriberView"
+    attribute="available_place_validator"
+    permission="zope2.View"
+    />
+
 </configure>

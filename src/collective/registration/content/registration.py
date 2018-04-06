@@ -8,6 +8,7 @@ from zope.interface import implementer
 
 from collective.registration import _
 from collective.registration.interfaces import IRegistration
+from Products.TALESField._tales import Expression
 
 SCRIPT = """
 ## Python Script
@@ -86,6 +87,8 @@ def create_registration_form(portal):
         required=True,
         default=0,
         container=form)
+    value = Expression.Expression("python: here.restrictedTraverse('available_place_validator')(here, request, value)")
+    nb_available_places.fgTValidator = value
 
     periods = api.content.create(
         type='FormSelectionPeriodField',
