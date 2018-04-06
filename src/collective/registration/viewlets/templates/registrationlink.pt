@@ -9,7 +9,7 @@
          i18n:translate="">clicking here</a>.
     </div>
 
-    <div tal:condition="not: availability_registration" i18n:translate="">
+    <div tal:condition="not: availability_registration">
       <span i18n:translate="">
           There are no available periods for this event. Please add period(s)
           to allow subscriptions.
