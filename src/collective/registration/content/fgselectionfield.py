@@ -8,6 +8,8 @@ from Products.PloneFormGen.content.fieldsBase import StringField
 from Products.PloneFormGen.content.fieldsBase import View
 from Products.PloneFormGen.content.fieldsBase import registerATCT
 from plone import api
+from zope.globalrequest import getRequest
+from zope.i18n import translate
 from zope.schema.vocabulary import SimpleVocabulary
 
 from collective.registration import _
@@ -73,12 +75,14 @@ class PeriodVocabularyFactory(object):
                 title = obj.title
                 start_date = obj.start.strftime('%d/%m/%Y')
                 end_date = obj.end.strftime('%d/%m/%Y')
-                value = _("{0} (from {1} to {2} - {3} place(s) left)".format(
+                string = _(u"{0} (from {1} to {2} - {3} place(s) left)")
+                value = translate(string,
+                                  context=getRequest()).format(
                     title,
                     start_date,
                     end_date,
                     str(nb_places_available)
-                ))
+                )
                 item = dict()
                 item[key] = value
                 values.append(item)
