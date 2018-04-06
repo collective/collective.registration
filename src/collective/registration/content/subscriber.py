@@ -10,16 +10,16 @@ from collective.registration import _
 
 
 class ISubscriber(model.Schema):
-    """ Marker interface and Dexterity Python Schema for Period
+    """ Marker interface and Dexterity Python Schema for Subscriber
     """
-
-    last_name = schema.TextLine(
-        title=_(u'Last name'),
-        required=True
-    )
 
     first_name = schema.TextLine(
         title=_(u'First name'),
+        required=True
+    )
+
+    last_name = schema.TextLine(
+        title=_(u'Last name'),
         required=True
     )
 
@@ -28,8 +28,8 @@ class ISubscriber(model.Schema):
         required=True
     )
 
-    number_of_persons = schema.Int(
-        title=_(u'Number of persons'),
+    number_of_people = schema.Int(
+        title=_(u'Number of people'),
         required=True
     )
 

@@ -3,14 +3,14 @@
 from datetime import datetime
 
 
-def aivability_registration(period):
+def availability_registration(period):
     if period.end >= datetime.now().date():
-        if nb_place_available(period):
+        if nb_places_available(period):
             return True
     return False
 
 
-def nb_place_available(period):
-    if period.available_place > 0:
+def nb_places_available(period):
+    if period.available_places > 0:
         return True
     return False

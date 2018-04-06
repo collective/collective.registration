@@ -1,18 +1,22 @@
-<div tal:condition="python: view.is_authorized()">
+<div tal:condition="view/available"
+     i18n:domain="collective.registration">
 
-  <div tal:define="aivability_registration python: view.aivability_registration()">
+  <div tal:define="availability_registration view/availability_registration">
 
-    <div tal:condition="aivability_registration">
-      You can booked for this event via this: <a tal:attributes="href python:view.subscription_url()" i18n:translate=""> link</a>
+    <div tal:condition="availability_registration">
+      <span i18n:translate="">You can subscribe to this event by</span>
+      <a tal:attributes="href view/subscription_url"
+         i18n:translate="">clicking here</a>.
     </div>
 
-    <div tal:condition="not: aivability_registration" class="warning_no_period" i18n:translate="">
-      Warning, there are no available periods for this event. Please create one to access
-      reservations.
-    </div>
-    <br>
-    <div tal:condition="not: aivability_registration" class="warning_no_period">
-      <span i18n:translate="">You can create one</span> <a tal:attributes="href python:view.period_url()">here</a>
+    <div tal:condition="not: availability_registration" i18n:translate="">
+      <span i18n:translate="">
+          There are no available periods for this event. Please add period(s)
+          to allow subscriptions.
+      </span>
+      <span i18n:translate="">You can create a new period by</span>
+      <a tal:attributes="href view/period_url"
+         i18n:translate="">clicking here</a>.
     </div>
 
   </div>

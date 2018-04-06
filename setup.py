@@ -43,9 +43,7 @@ setup(
         'plone.api',
         'Products.GenericSetup>=1.8.2',
         'setuptools',
-        'z3c.jbot',
         'Products.PloneFormGen',
-
     ],
     extras_require={
         'test': [

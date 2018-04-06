@@ -9,7 +9,7 @@
   <browser:viewlet
     name="registration.viewlet"
     for="plone.app.contenttypes.interfaces.IEvent"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
     layer="collective.registration.interfaces.ICollectiveRegistrationLayer"
     class=".registration.RegistrationViewlet"
     template="templates/registrationlink.pt"

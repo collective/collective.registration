@@ -22,8 +22,8 @@ class IPeriod(model.Schema):
         title=_(u'end date'),
     )
 
-    nb_place = schema.Int(
-        title=_(u'Number of places'),
+    nb_places = schema.Int(
+        title=_(u'Number of available places'),
     )
 
 
@@ -33,12 +33,12 @@ class Period(Container):
     """
 
 
-def create_period_event(object, event):
+def create_period_event(obj, event):
     if type(event) == ObjectModifiedEvent:
         if len(event.descriptions) > 0:
-            object.available_place = object.nb_place
+            obj.available_places = obj.nb_places
     else:
-        object.available_place = object.nb_place
-        if IRegistration.providedBy(object.aq_parent):
-            registration = object.aq_parent
-            object.REQUEST.RESPONSE.redirect(registration.absolute_url())
+        obj.available_places = obj.nb_places
+        if IRegistration.providedBy(obj.aq_parent):
+            registration = obj.aq_parent
+            obj.REQUEST.RESPONSE.redirect(registration.absolute_url())

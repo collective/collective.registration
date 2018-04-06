@@ -7,25 +7,19 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <!--
-    Be careful if you use general includeDependencies, it can have sideffects!
-    Better import explicite packages or configurations ;)
-  -->
-  <!--<includeDependencies package="." />-->
-
   <include package="Products.PloneFormGen" />
 
   <include package=".browser" />
   <include package=".content" />
   <include package=".viewlets" />
+
   <include file="permissions.zcml" />
-  <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
       name="default"
       title="collective.registration"
       directory="profiles/default"
-      description="Installs the collective.registration add-on."
+      description="Add registration content allowing users subscriptions."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.post_install"
       />
@@ -43,7 +37,5 @@
       factory=".setuphandlers.HiddenProfiles"
       name="collective.registration-hiddenprofiles"
       />
-
-  <!-- -*- extra stuff goes here -*- -->
 
 </configure>

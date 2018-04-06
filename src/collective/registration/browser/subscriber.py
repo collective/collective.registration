@@ -8,25 +8,29 @@ from collective.registration import _
 class SubscriberView(BrowserView):
 
     def add_subscriber(self, context, fields):
-        container = context.getParentNode().get(fields.get('period-field'))
+        period = context.getParentNode().get(fields.get('period'))
 
-        title = '{0} {1}'.format(fields.get('last-name'), fields.get('first-name'))
+        title = '{0} {1}'.format(
+            fields.get('last-name'),
+            fields.get('first-name')
+        )
         subscriber = api.content.create(
-            container=container,
+            container=period,
             type='subscriber',
             title=title
         )
 
+        subscriber.first_name = fields.get('first-name')
         subscriber.last_name = fields.get('last-name')
-        subscriber.first_name = fields.get('first_name')
         subscriber.mail = fields.get('replyto')
-        subscriber.number_of_persons = int(fields.get('number-available-places'))
+        subscriber.number_of_people = int(fields.get('number-of-people'))
         subscriber.reindexObject()
 
-        container.available_place -= int(fields.get('number-available-places'))
+        period.available_places -= int(fields.get('number-of-people'))
 
-    def available_place_validator(self, context, request, value):
-        period = context.getParentNode().getParentNode().get(request.form.get('period-field'))
-        if int(value) < period.available_place:
+    def available_places_validator(self, context, request, value):
+        registration = context.getParentNode().getParentNode()
+        period = registration.get(request.form.get('period'))
+        if int(value) < period.available_places:
             return False
         return _('Not enough space in the selected period')

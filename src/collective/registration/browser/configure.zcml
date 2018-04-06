@@ -4,20 +4,6 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.registration">
 
-  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
-  <include package="z3c.jbot" file="meta.zcml" />
-  <browser:jbot
-      directory="overrides"
-      layer="collective.registration.interfaces.ICollectiveRegistrationLayer"
-      />
-
-  <!-- Publish static files -->
-  <plone:static
-      name="collective.registration"
-      type="plone"
-      directory="static"
-    />
-
   <browser:page
     name="add_subscriber"
     for="*"
@@ -27,10 +13,10 @@
     />
 
   <browser:page
-    name="available_place_validator"
+    name="available_places_validator"
     for="*"
     class=".subscriber.SubscriberView"
-    attribute="available_place_validator"
+    attribute="available_places_validator"
     permission="zope2.View"
     />
 

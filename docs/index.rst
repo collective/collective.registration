@@ -1,3 +1,0 @@
-=======================collective.registration
-=======================
-User documentation

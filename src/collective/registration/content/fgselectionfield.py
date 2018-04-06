@@ -12,17 +12,17 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 from collective.registration import _
 from collective.registration.content.registration import IRegistration
-from collective.registration.utils import aivability_registration
+from collective.registration.utils import availability_registration
 
 
-class FGSelectionPeriodField(FGSelectionField):
-    """ Selection Field (radio buttons or select) """
+class FGPeriodSelectionField(FGSelectionField):
+    """ Period Selection Field (radio buttons or select) """
 
     schema = BaseFieldSchemaStringDefault.copy()
-    portal_type = meta_type = 'FormSelectionPeriodField'
-    archetype_name = 'Selection Period Field'
+    portal_type = meta_type = 'FormPeriodSelectionField'
+    archetype_name = 'Period Selection Field'
     content_icon = 'ListField.gif'
-    typeDescription = 'Selection Period Field (radio buttons or select)'
+    typeDescription = 'Period Selection Field (radio buttons or select)'
 
     def __init__(self, oid, **kwargs):
         """ initialize class """
@@ -30,7 +30,7 @@ class FGSelectionPeriodField(FGSelectionField):
         FGSelectionField.__init__(self, oid, **kwargs)
 
         self.fgField = StringField(
-            'SelectionPeriodField',
+            'PeriodSelectionField',
             required=1,
             widget=SelectionWidget(),
             vocabulary_factory='collective.registration.vocabularies.period',
@@ -38,7 +38,7 @@ class FGSelectionPeriodField(FGSelectionField):
         )
 
 
-registerATCT(FGSelectionPeriodField, PROJECTNAME)
+registerATCT(FGPeriodSelectionField, PROJECTNAME)
 
 
 def dict_list_2_vocabulary(dict_list):
@@ -60,19 +60,28 @@ class PeriodVocabularyFactory(object):
         registration = context.aq_parent
         values = []
         if IRegistration.providedBy(registration):
-            periods = api.content.find(context=registration, portal_type='period')
+            periods = api.content.find(
+                context=registration,
+                portal_type='period'
+            )
             for period in periods:
                 obj = period.getObject()
-                if aivability_registration(obj):
-                    nb_place_available = obj.available_place
-                    key = obj.id
-                    title = obj.title
-                    start_date = obj.start.strftime('%d/%m/%Y')
-                    end_date = obj.end.strftime('%d/%m/%Y')
-                    value = _("{0} from {1} to {2} with {3} places available".format(title, start_date, end_date, str(nb_place_available)))
-                    item = dict()
-                    item[key] = value
-                    values.append(item)
+                if not availability_registration(obj):
+                    continue
+                nb_places_available = obj.available_places
+                key = obj.id
+                title = obj.title
+                start_date = obj.start.strftime('%d/%m/%Y')
+                end_date = obj.end.strftime('%d/%m/%Y')
+                value = _("{0} (from {1} to {2} - {3} place(s) left)".format(
+                    title,
+                    start_date,
+                    end_date,
+                    str(nb_places_available)
+                ))
+                item = dict()
+                item[key] = value
+                values.append(item)
 
         return dict_list_2_vocabulary(values)
 

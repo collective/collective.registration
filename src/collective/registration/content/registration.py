@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
-from Products.statusmessages.interfaces import IStatusMessage
 from plone import api
 from plone.dexterity.content import Container
 from zope.interface import implementer
@@ -10,7 +9,7 @@ from collective.registration import _
 from collective.registration.interfaces import IRegistration
 from Products.TALESField._tales import Expression
 
-SCRIPT = """
+SUBSCRIPTION_SCRIPT = """
 ## Python Script
 ##bind container=container
 ##bind context=context
@@ -20,6 +19,10 @@ SCRIPT = """
 ##
 ploneformgen.restrictedTraverse('add_subscriber')(ploneformgen, fields)"""
 
+AVAILABLE_PLACES_VALIDATOR = """
+python: here.restrictedTraverse('available_places_validator')(here, request, value)
+"""
+
 
 @implementer(IRegistration)
 class Registration(Container):
@@ -27,22 +30,24 @@ class Registration(Container):
     """
 
 
-def create_registration_event(object, event):
-    object.REQUEST.RESPONSE.redirect(object.absolute_url() + '/++add++Event?')
+def create_registration_event(obj, event):
+    obj.REQUEST.RESPONSE.redirect(obj.absolute_url() + '/++add++Event?')
 
 
-def event_add_cancelled_event(object, event):
-    url = object.aq_parent.absolute_url()
-    messages = IStatusMessage(object.REQUEST)
-    messages.add(u"The creation of registration has cancelled", type=u"info")
-    api.content.delete(obj=object)
-    object.REQUEST.RESPONSE.redirect(url)
+def event_add_cancelled_event(obj, event):
+    url = obj.aq_parent.absolute_url()
+    api.portal.show_message(
+        _(u"The creation of registration has been cancelled"),
+        type=u"info"
+    )
+    api.content.delete(obj=obj)
+    obj.REQUEST.RESPONSE.redirect(url)
 
 
-def create_event_event(object, event):
-    if IRegistration.providedBy(object.aq_parent):
-        parent = object.aq_parent
-        parent.manage_addProperty('default_page', object.id, 'string')
+def create_event_event(obj, event):
+    if IRegistration.providedBy(obj.aq_parent):
+        parent = obj.aq_parent
+        parent.manage_addProperty('default_page', obj.id, 'string')
         create_registration_form(parent)
         behavior = ISelectableConstrainTypes(parent)
         behavior.setConstrainTypesMode(1)
@@ -67,7 +72,13 @@ def create_registration_form(portal):
         title=_(u'Add subscriber'),
         container=form
     )
-    subscriber_field.updateScript(SCRIPT, 'none')
+    subscriber_field.updateScript(SUBSCRIPTION_SCRIPT, 'none')
+
+    first_name = api.content.create(
+        type='FormStringField',
+        title=_(u'First name'),
+        required=True,
+        container=form)
 
     last_name = api.content.create(
         type='FormStringField',
@@ -75,29 +86,23 @@ def create_registration_form(portal):
         required=True,
         container=form)
 
-    first_name = api.content.create(
-        type='FormStringField',
-        title=_(u'first name'),
-        required=True,
-        container=form)
-
-    nb_available_places = api.content.create(
+    nb_people = api.content.create(
         type='FormIntegerField',
-        title=_(u'Number available places'),
+        title=_(u'Number of people'),
         required=True,
         default=0,
         container=form)
-    value = Expression.Expression("python: here.restrictedTraverse('available_place_validator')(here, request, value)")
-    nb_available_places.fgTValidator = value
+    value = Expression.Expression(AVAILABLE_PLACES_VALIDATOR)
+    nb_people.fgTValidator = value
 
-    periods = api.content.create(
-        type='FormSelectionPeriodField',
-        title=_(u'Period field'),
+    api.content.create(
+        type='FormPeriodSelectionField',
+        title=_(u'Period'),
         required=True,
         container=form
     )
 
-    form.moveObjectToPosition(last_name.id, 0)
-    form.moveObjectToPosition(first_name.id, 1)
+    form.moveObjectToPosition(first_name.id, 0)
+    form.moveObjectToPosition(last_name.id, 1)
     form.moveObjectToPosition('replyto', 2)
-    form.moveObjectToPosition(nb_available_places.id, 3)
+    form.moveObjectToPosition(nb_people.id, 3)
