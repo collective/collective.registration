@@ -102,6 +102,13 @@ def create_registration_form(portal):
         container=form
     )
 
+    api.content.create(
+        type='FormSaveDataAdapter',
+        title=_(u'CSV'),
+        required=True,
+        container=form
+    )
+
     form.moveObjectToPosition(period.id, 0)
     form.moveObjectToPosition(first_name.id, 1)
     form.moveObjectToPosition(last_name.id, 2)
