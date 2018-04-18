@@ -60,13 +60,13 @@ def create_registration_form(portal):
         title='Registration',
         container=portal)
     api.content.delete(obj=form['topic'])
-    setattr(form, 'actionAdapter', ())
 
     form['thank-you'].setShowAll(False)
     form['thank-you'].setDescription(_(u'Thank you for your registration'))
     form['comments'].setRequired(False)
     form.setExcludeFromNav(1)
-
+    form['mailer'].setMsg_subject(_(u'Confirmation for your inscription'))
+    form['mailer'].setBody_pre(_(u'Here the information about your confirmation'))
     subscriber_field = api.content.create(
         type='FormCustomScriptAdapter',
         title=_(u'Add subscriber'),
