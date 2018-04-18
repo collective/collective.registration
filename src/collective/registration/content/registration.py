@@ -95,14 +95,15 @@ def create_registration_form(portal):
     value = Expression.Expression(AVAILABLE_PLACES_VALIDATOR)
     nb_people.fgTValidator = value
 
-    api.content.create(
+    period = api.content.create(
         type='FormPeriodSelectionField',
         title=_(u'Period'),
         required=True,
         container=form
     )
 
-    form.moveObjectToPosition(first_name.id, 0)
-    form.moveObjectToPosition(last_name.id, 1)
-    form.moveObjectToPosition('replyto', 2)
-    form.moveObjectToPosition(nb_people.id, 3)
+    form.moveObjectToPosition(period.id, 0)
+    form.moveObjectToPosition(first_name.id, 1)
+    form.moveObjectToPosition(last_name.id, 2)
+    form.moveObjectToPosition('replyto', 3)
+    form.moveObjectToPosition(nb_people.id, 4)
