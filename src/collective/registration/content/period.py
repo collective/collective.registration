@@ -39,3 +39,6 @@ def create_period_event(obj, event):
             obj.available_places = obj.nb_places
     else:
         obj.available_places = obj.nb_places
+        url = obj.aq_parent.absolute_url()
+        if IRegistration.providedBy(obj.aq_parent):
+            obj.REQUEST.RESPONSE.redirect(url)
