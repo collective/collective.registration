@@ -67,6 +67,7 @@ def create_registration_form(portal):
     form.setExcludeFromNav(1)
     form['mailer'].setMsg_subject(_(u'Confirmation for your inscription'))
     form['mailer'].setBody_pre(_(u'Here the information about your confirmation'))
+    form['mailer'].setRecipientOverride('request/form/replyto')
     subscriber_field = api.content.create(
         type='FormCustomScriptAdapter',
         title=_(u'Add subscriber'),
