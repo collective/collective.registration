@@ -42,3 +42,17 @@ class RegistrationViewlet(base.ViewletBase):
             if availability_registration(period):
                 return True
         return False
+
+    def can_view_subcriber_list(self):
+        current = api.user.get_current()
+        if api.user.has_permission('Edit', username=current.getUserName()):
+            return True
+        return False
+
+    def csv_url(self):
+        registration_url = api.content.find(
+            context=self.parent,
+            portal_type='FormFolder'
+        )[0].getURL()
+        url = "{0}/csv/download".format(registration_url)
+        return url

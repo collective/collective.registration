@@ -1,7 +1,8 @@
 <div tal:condition="view/available"
      i18n:domain="collective.registration">
 
-  <div tal:define="availability_registration view/availability_registration">
+  <div tal:define="availability_registration view/availability_registration;
+                   availability_view_subscriber view/can_view_subcriber_list">
 
     <div tal:condition="availability_registration">
       <span i18n:translate="">You can subscribe to this event by</span>
@@ -16,6 +17,13 @@
       </span>
       <span i18n:translate="">You can create a new period by</span>
       <a tal:attributes="href view/period_url"
+         i18n:translate="">clicking here</a>.
+    </div>
+    <br>
+    <br>
+    <div tal:condition="availability_view_subscriber">
+      <span i18n:translate="">You can download the list of subscribers</span>
+      <a tal:attributes="href view/csv_url"
          i18n:translate="">clicking here</a>.
     </div>
 
