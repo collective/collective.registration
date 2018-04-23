@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object
-  i18n:domain="plone"
+  i18n:domain="collective.registration"
   meta_type="Dexterity FTI"
   name="Registration"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
