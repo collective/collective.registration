@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../content/registration.py:69
 msgid "Confirmation of your subscription"
-msgstr ""
+msgstr "Confirmation de votre inscription"
 
 #: ../profiles/default/types/period.xml
 #: ../profiles/default/types/registration.xml
@@ -46,7 +46,7 @@ msgstr "Prénom"
 
 #: ../content/registration.py:70
 msgid "Informations about your subscription"
-msgstr ""
+msgstr "Informations à propos de votre inscription"
 
 #: ../content/registration.py:87
 #: ../content/subscriber.py:22
@@ -74,24 +74,24 @@ msgstr "Période"
 #. Default: "Period Selection Field (radio buttons or select)"
 #: ../profiles/default/types/FormPeriodSelectionField.xml
 msgid "Period Selection Field (radio buttons or select)"
-msgstr ""
+msgstr "Champ de sélection de Période"
 
 #: ../profiles/default/types/period.xml
 msgid "Period of an event"
-msgstr ""
+msgstr "Période d'un événement"
 
 #: ../profiles/default/types/registration.xml
 msgid "Registration"
-msgstr ""
+msgstr "Evénement avec inscriptions"
 
 #: ../profiles/default/types/registration.xml
 msgid "Registration activated on an event"
-msgstr ""
+msgstr "Evénements avec possibilité d'inscription"
 
 #. Default: "Period Selection Field"
 #: ../profiles/default/types/FormPeriodSelectionField.xml
 msgid "Selection Field"
-msgstr ""
+msgstr "Champ de sélection de Période"
 
 #: ../content/period.py:18
 msgid "Start date"
@@ -99,15 +99,15 @@ msgstr "Date de début"
 
 #: ../profiles/default/types/subscriber.xml
 msgid "Subscriber"
-msgstr ""
+msgstr "Inscrit"
 
 #: ../profiles/default/types/subscriber.xml
 msgid "Subscriber for a period of an event"
-msgstr ""
+msgstr "Inscrit pour une période d'un événement"
 
 #: ../content/registration.py:66
 msgid "Thank you for your subscription"
-msgstr ""
+msgstr "Merci pour votre inscription"
 
 #: ../content/registration.py:40
 msgid "The creation of registration has been cancelled"
@@ -128,7 +128,7 @@ msgstr "Vous pouvez créer une période en"
 
 #: ../viewlets/templates/registrationlink.pt:25
 msgid "You can download the full list of subscribers by"
-msgstr ""
+msgstr "Vous pouvez télécharger la liste complète des inscrits en"
 
 #: ../viewlets/templates/registrationlink.pt:8
 msgid "You can subscribe to this event by"
