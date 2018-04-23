@@ -38,6 +38,7 @@ def event_add_cancelled_event(obj, event):
     url = obj.aq_parent.absolute_url()
     api.portal.show_message(
         _(u"The creation of registration has been cancelled"),
+        request=obj.REQUEST,
         type=u"info"
     )
     api.content.delete(obj=obj)
