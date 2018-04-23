@@ -3,7 +3,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title" i18n:translate="">Subscriber</property>
  <property name="description"
-    i18n:translate="">registration for the period of an event</property>
+    i18n:translate="">Subscriber for a period of an event</property>
  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
  <property name="factory">subscriber</property>
  <property

@@ -11,7 +11,7 @@
     name="title">Registration</property>
   <property
     i18n:translate=""
-    name="description">Registration of event</property>
+    name="description">Registration activated on an event</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">Registration</property>

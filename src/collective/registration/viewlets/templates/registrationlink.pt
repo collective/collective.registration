@@ -22,7 +22,7 @@
     <br>
     <br>
     <div tal:condition="availability_view_subscriber">
-      <span i18n:translate="">You can download the list of subscribers</span>
+      <span i18n:translate="">You can download the full list of subscribers by</span>
       <a tal:attributes="href view/csv_url"
          i18n:translate="">clicking here</a>.
     </div>
