@@ -2,6 +2,7 @@
 <layers>
   <layer
       name="collective.registration"
+      interface="collective.registration.interfaces.ICollectiveRegistrationLayer"
       remove="true"
       />
 </layers>
