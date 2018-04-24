@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-06 12:09+0000\n"
+"POT-Creation-Date: 2018-04-23 14:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.registration\n"
 
-#: ../content/registration.py:72
+#: ../content/registration.py:74
 msgid "Add subscriber"
 msgstr ""
 
+#: ../content/registration.py:109
+msgid "CSV"
+msgstr ""
+
+#: ../content/registration.py:69
+msgid "Confirmation of your subscription"
+msgstr ""
+
 #: ../profiles/default/types/period.xml
+#: ../profiles/default/types/registration.xml
 msgid "Edit"
 msgstr ""
 
@@ -33,12 +42,16 @@ msgstr ""
 msgid "End date"
 msgstr ""
 
-#: ../content/registration.py:79
+#: ../content/registration.py:81
 #: ../content/subscriber.py:17
 msgid "First name"
 msgstr ""
 
-#: ../content/registration.py:85
+#: ../content/registration.py:70
+msgid "Informations about your subscription"
+msgstr ""
+
+#: ../content/registration.py:87
 #: ../content/subscriber.py:22
 msgid "Last name"
 msgstr ""
@@ -51,50 +64,81 @@ msgstr ""
 msgid "Number of available places"
 msgstr ""
 
-#: ../content/registration.py:91
+#: ../content/registration.py:93
 #: ../content/subscriber.py:32
 msgid "Number of people"
 msgstr ""
 
-#: ../content/registration.py:100
+#: ../content/registration.py:102
 #: ../profiles/default/types/period.xml
 msgid "Period"
+msgstr ""
+
+#. Default: "Period Selection Field (radio buttons or select)"
+#: ../profiles/default/types/FormPeriodSelectionField.xml
+msgid "Period Selection Field (radio buttons or select)"
+msgstr ""
+
+#: ../profiles/default/types/period.xml
+msgid "Period of an event"
+msgstr ""
+
+#: ../profiles/default/types/registration.xml
+msgid "Registration"
+msgstr ""
+
+#: ../profiles/default/types/registration.xml
+msgid "Registration activated on an event"
+msgstr ""
+
+#. Default: "Period Selection Field"
+#: ../profiles/default/types/FormPeriodSelectionField.xml
+msgid "Selection Field"
 msgstr ""
 
 #: ../content/period.py:18
 msgid "Start date"
 msgstr ""
 
+#: ../profiles/default/types/subscriber.xml
+msgid "Subscriber"
+msgstr ""
+
+#: ../profiles/default/types/subscriber.xml
+msgid "Subscriber for a period of an event"
+msgstr ""
+
 #: ../content/registration.py:66
-msgid "Thank you for your registration"
+msgid "Thank you for your subscription"
 msgstr ""
 
 #: ../content/registration.py:40
 msgid "The creation of registration has been cancelled"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:13
+#: ../viewlets/templates/registrationlink.pt:14
 msgid "There are no available periods for this event. Please add period(s) to allow subscriptions."
 msgstr ""
 
 #: ../profiles/default/types/period.xml
+#: ../profiles/default/types/registration.xml
 msgid "View"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:17
+#: ../viewlets/templates/registrationlink.pt:18
 msgid "You can create a new period by"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:7
-msgid "You can subscribe to this event by"
+#: ../viewlets/templates/registrationlink.pt:25
+msgid "You can download the full list of subscribers by"
 msgstr ""
 
 #: ../viewlets/templates/registrationlink.pt:8
-msgid "clicking here"
+msgid "You can subscribe to this event by"
 msgstr ""
 
-#: ../profiles/default/types/period.xml
-msgid "period of event"
+#: ../viewlets/templates/registrationlink.pt:9
+msgid "clicking here"
 msgstr ""
 
 #: ../content/fgselectionfield.py:78

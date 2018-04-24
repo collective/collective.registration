@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-06 12:09+0000\n"
+"POT-Creation-Date: 2018-04-23 14:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../content/registration.py:72
+#: ../content/registration.py:74
 msgid "Add subscriber"
 msgstr "Ajouter un inscrit"
 
+#: ../content/registration.py:109
+msgid "CSV"
+msgstr ""
+
+#: ../content/registration.py:69
+msgid "Confirmation of your subscription"
+msgstr "Confirmation de votre inscription"
+
 #: ../profiles/default/types/period.xml
+#: ../profiles/default/types/registration.xml
 msgid "Edit"
 msgstr ""
 
@@ -30,12 +39,16 @@ msgstr ""
 msgid "End date"
 msgstr "Date de fin"
 
-#: ../content/registration.py:79
+#: ../content/registration.py:81
 #: ../content/subscriber.py:17
 msgid "First name"
 msgstr "Prénom"
 
-#: ../content/registration.py:85
+#: ../content/registration.py:70
+msgid "Informations about your subscription"
+msgstr "Informations à propos de votre inscription"
+
+#: ../content/registration.py:87
 #: ../content/subscriber.py:22
 msgid "Last name"
 msgstr "Nom"
@@ -48,51 +61,82 @@ msgstr "Il n'y a plus assez de places pour la période choisie"
 msgid "Number of available places"
 msgstr "Nombre de places disponibles"
 
-#: ../content/registration.py:91
+#: ../content/registration.py:93
 #: ../content/subscriber.py:32
 msgid "Number of people"
 msgstr "Nombre de personnes"
 
-#: ../content/registration.py:100
+#: ../content/registration.py:102
 #: ../profiles/default/types/period.xml
 msgid "Period"
 msgstr "Période"
+
+#. Default: "Period Selection Field (radio buttons or select)"
+#: ../profiles/default/types/FormPeriodSelectionField.xml
+msgid "Period Selection Field (radio buttons or select)"
+msgstr "Champ de sélection de Période"
+
+#: ../profiles/default/types/period.xml
+msgid "Period of an event"
+msgstr "Période d'un événement"
+
+#: ../profiles/default/types/registration.xml
+msgid "Registration"
+msgstr "Evénement avec inscriptions"
+
+#: ../profiles/default/types/registration.xml
+msgid "Registration activated on an event"
+msgstr "Evénements avec possibilité d'inscription"
+
+#. Default: "Period Selection Field"
+#: ../profiles/default/types/FormPeriodSelectionField.xml
+msgid "Selection Field"
+msgstr "Champ de sélection de Période"
 
 #: ../content/period.py:18
 msgid "Start date"
 msgstr "Date de début"
 
+#: ../profiles/default/types/subscriber.xml
+msgid "Subscriber"
+msgstr "Inscrit"
+
+#: ../profiles/default/types/subscriber.xml
+msgid "Subscriber for a period of an event"
+msgstr "Inscrit pour une période d'un événement"
+
 #: ../content/registration.py:66
-msgid "Thank you for your registration"
+msgid "Thank you for your subscription"
 msgstr "Merci pour votre inscription"
 
 #: ../content/registration.py:40
 msgid "The creation of registration has been cancelled"
 msgstr "La création de l'événement avec inscription a été annulée"
 
-#: ../viewlets/templates/registrationlink.pt:13
+#: ../viewlets/templates/registrationlink.pt:14
 msgid "There are no available periods for this event. Please add period(s) to allow subscriptions."
 msgstr "Il n'y a pas de période disponible pour cet événement. Veuillez ajouter une période pour activer les inscriptions."
 
 #: ../profiles/default/types/period.xml
+#: ../profiles/default/types/registration.xml
 msgid "View"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:17
+#: ../viewlets/templates/registrationlink.pt:18
 msgid "You can create a new period by"
 msgstr "Vous pouvez créer une période en"
 
-#: ../viewlets/templates/registrationlink.pt:7
+#: ../viewlets/templates/registrationlink.pt:25
+msgid "You can download the full list of subscribers by"
+msgstr "Vous pouvez télécharger la liste complète des inscrits en"
+
+#: ../viewlets/templates/registrationlink.pt:8
 msgid "You can subscribe to this event by"
 msgstr "Vous pouvez vous inscrire à cet événement en"
 
-#: ../viewlets/templates/registrationlink.pt:8
+#: ../viewlets/templates/registrationlink.pt:9
 msgid "clicking here"
 msgstr "cliquant ici"
-
-#: ../profiles/default/types/period.xml
-msgid "period of event"
-msgstr "Période pour un événement"
 
 #: ../content/fgselectionfield.py:78
 msgid "{0} (from {1} to {2} - {3} place(s) left)"

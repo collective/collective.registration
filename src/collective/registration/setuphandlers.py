@@ -3,6 +3,7 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
+from plone import api
 
 
 @implementer(INonInstallable)
@@ -17,7 +18,6 @@ class HiddenProfiles(object):
 
 def post_install(context):
     """Post install script"""
-    from plone import api
     site = api.portal.get()
 
     ptt = getToolByName(site, 'portal_types')
@@ -30,4 +30,3 @@ def post_install(context):
 
 def uninstall(context):
     """Uninstall script"""
-    # Do something at the end of the uninstallation of this package.

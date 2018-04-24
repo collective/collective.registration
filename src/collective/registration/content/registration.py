@@ -38,6 +38,7 @@ def event_add_cancelled_event(obj, event):
     url = obj.aq_parent.absolute_url()
     api.portal.show_message(
         _(u"The creation of registration has been cancelled"),
+        request=obj.REQUEST,
         type=u"info"
     )
     api.content.delete(obj=obj)
@@ -60,13 +61,14 @@ def create_registration_form(portal):
         title='Registration',
         container=portal)
     api.content.delete(obj=form['topic'])
-    setattr(form, 'actionAdapter', ())
 
     form['thank-you'].setShowAll(False)
-    form['thank-you'].setDescription(_(u'Thank you for your registration'))
+    form['thank-you'].setDescription(_(u'Thank you for your subscription'))
     form['comments'].setRequired(False)
     form.setExcludeFromNav(1)
-
+    form['mailer'].setMsg_subject(_(u'Confirmation of your subscription'))
+    form['mailer'].setBody_pre(_(u'Informations about your subscription'))
+    form['mailer'].setTo_field('replyto')
     subscriber_field = api.content.create(
         type='FormCustomScriptAdapter',
         title=_(u'Add subscriber'),
@@ -95,14 +97,22 @@ def create_registration_form(portal):
     value = Expression.Expression(AVAILABLE_PLACES_VALIDATOR)
     nb_people.fgTValidator = value
 
-    api.content.create(
+    period = api.content.create(
         type='FormPeriodSelectionField',
         title=_(u'Period'),
         required=True,
         container=form
     )
 
-    form.moveObjectToPosition(first_name.id, 0)
-    form.moveObjectToPosition(last_name.id, 1)
-    form.moveObjectToPosition('replyto', 2)
-    form.moveObjectToPosition(nb_people.id, 3)
+    api.content.create(
+        type='FormSaveDataAdapter',
+        title=_(u'CSV'),
+        required=True,
+        container=form
+    )
+
+    form.moveObjectToPosition(period.id, 0)
+    form.moveObjectToPosition(first_name.id, 1)
+    form.moveObjectToPosition(last_name.id, 2)
+    form.moveObjectToPosition('replyto', 3)
+    form.moveObjectToPosition(nb_people.id, 4)

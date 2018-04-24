@@ -10,7 +10,7 @@
       name="title">Period</property>
   <property
       i18n:translate=""
-      name="description">period of event</property>
+      name="description">Period of an event</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">period</property>

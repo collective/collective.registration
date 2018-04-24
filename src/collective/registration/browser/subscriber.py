@@ -31,6 +31,6 @@ class SubscriberView(BrowserView):
     def available_places_validator(self, context, request, value):
         registration = context.getParentNode().getParentNode()
         period = registration.get(request.form.get('period'))
-        if int(value) < period.available_places:
+        if int(value) <= period.available_places:
             return False
         return _('Not enough places left in the selected period')

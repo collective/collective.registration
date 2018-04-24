@@ -2,7 +2,7 @@
 <object name="FormPeriodSelectionField"
    meta_type="Factory-based Type Information with dynamic views"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-   i18n:domain="ploneformgen">
+   i18n:domain="collective.registration">
  <property name="title" i18n:translate="Selection Field">Period Selection Field</property>
  <property
     name="description" i18n:translate="Period Selection Field (radio buttons or select)">Period Selection Field (radio buttons or select)</property>
