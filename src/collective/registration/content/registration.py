@@ -6,6 +6,7 @@ from collective.registration import _
 from collective.registration.interfaces import IRegistration
 from plone import api
 from plone.dexterity.content import Container
+from zope.i18n import translate
 from zope.interface import implementer
 
 
@@ -55,11 +56,16 @@ def create_event_event(obj, event):
         behavior.setImmediatelyAddableTypes(('period',))
 
 
-def create_registration_form(portal):
+def create_registration_form(container):
+    current_lang = api.portal.get_current_language()
+    reg_text = translate(
+        _(u'Registration to'),
+        target_language=current_lang,
+    )
     form = api.content.create(
         type='FormFolder',
-        title='Registration',
-        container=portal)
+        title=u'{0} : {1}'.format(reg_text, container.Title()),
+        container=container)
     api.content.delete(obj=form['topic'])
 
     form['thank-you'].setShowAll(False)

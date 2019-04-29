@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-04-23 14:46+0000\n"
+"POT-Creation-Date: 2019-04-29 08:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,6 +86,10 @@ msgstr ""
 
 #: ../profiles/default/types/registration.xml
 msgid "Registration activated on an event"
+msgstr ""
+
+#: ../content/registration.py:59
+msgid "Registration to"
 msgstr ""
 
 #. Default: "Period Selection Field"

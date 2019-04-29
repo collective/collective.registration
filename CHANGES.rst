@@ -5,6 +5,9 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- Translate subscription form title & include event title
+  [laulaz]
+
 - Add classes to ease styling
   [laulaz]
 
