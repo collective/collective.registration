@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
+from Products.TALESField._tales import Expression
+from collective.registration import _
+from collective.registration.interfaces import IRegistration
 from plone import api
 from plone.dexterity.content import Container
 from zope.interface import implementer
 
-from collective.registration import _
-from collective.registration.interfaces import IRegistration
-from Products.TALESField._tales import Expression
 
 SUBSCRIPTION_SCRIPT = """
 ## Python Script
