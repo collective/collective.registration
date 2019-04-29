@@ -6,7 +6,8 @@
 
     <div tal:condition="availability_registration">
       <span i18n:translate="">You can subscribe to this event by</span>
-      <a tal:attributes="href view/subscription_url"
+      <a class="button button-subscribe"
+         tal:attributes="href view/subscription_url"
          i18n:translate="">clicking here</a>.
     </div>
 
@@ -16,14 +17,16 @@
           to allow subscriptions.
       </span>
       <span i18n:translate="">You can create a new period by</span>
-      <a tal:attributes="href view/period_url"
+      <a class="button button-period"
+         tal:attributes="href view/period_url"
          i18n:translate="">clicking here</a>.
     </div>
     <br>
     <br>
     <div tal:condition="availability_view_subscriber">
       <span i18n:translate="">You can download the full list of subscribers by</span>
-      <a tal:attributes="href view/csv_url"
+      <a class="button button-download"
+         tal:attributes="href view/csv_url"
          i18n:translate="">clicking here</a>.
     </div>
 

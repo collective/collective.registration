@@ -5,7 +5,8 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add classes to ease styling
+  [laulaz]
 
 
 1.0a1 (2018-06-25)
