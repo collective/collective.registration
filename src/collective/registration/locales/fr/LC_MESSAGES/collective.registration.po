@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-29 08:11+0000\n"
+"POT-Creation-Date: 2019-05-13 09:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,88 +14,82 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../content/registration.py:74
-msgid "Add subscriber"
-msgstr "Ajouter un inscrit"
-
-#: ../content/registration.py:109
-msgid "CSV"
-msgstr ""
-
-#: ../content/registration.py:69
-msgid "Confirmation of your subscription"
-msgstr "Confirmation de votre inscription"
+#: ../configure.zcml:25
+msgid "Add registration content allowing users subscriptions."
+msgstr "Ajoute le type de contenu Événement avec inscriptions"
 
 #: ../profiles/default/types/period.xml
 #: ../profiles/default/types/registration.xml
 msgid "Edit"
 msgstr ""
 
-#: ../content/subscriber.py:27
+#: ../content/subscriber.py:21
 msgid "Email"
 msgstr ""
 
-#: ../content/period.py:22
+#: ../interfaces.py:24
+msgid "Email address"
+msgstr "Adresse email"
+
+#: ../interfaces.py:46
+msgid "Email based on form inputs"
+msgstr "Email basé sur les données complétées"
+
+#: ../interfaces.py:45
+msgid "Email response"
+msgstr "Réponse"
+
+#: ../content/period.py:20
 msgid "End date"
 msgstr "Date de fin"
 
-#: ../content/registration.py:81
 #: ../content/subscriber.py:17
+#: ../interfaces.py:26
 msgid "First name"
 msgstr "Prénom"
 
-#: ../content/registration.py:70
+#: ../interfaces.py:53
 msgid "Informations about your subscription"
 msgstr "Informations à propos de votre inscription"
 
-#: ../content/registration.py:87
-#: ../content/subscriber.py:22
+#: ../content/subscriber.py:19
+#: ../interfaces.py:28
 msgid "Last name"
 msgstr "Nom"
 
-#: ../browser/subscriber.py:36
-msgid "Not enough places left in the selected period"
-msgstr "Il n'y a plus assez de places pour la période choisie"
-
-#: ../content/period.py:26
-msgid "Number of available places"
-msgstr "Nombre de places disponibles"
-
-#: ../content/registration.py:93
-#: ../content/subscriber.py:32
+#: ../content/subscriber.py:23
+#: ../interfaces.py:31
 msgid "Number of people"
 msgstr "Nombre de personnes"
 
-#: ../content/registration.py:102
+#: ../content/period.py:22
+msgid "Number of total available places"
+msgstr "Nombre total de places disponibles"
+
+#: ../interfaces.py:35
 #: ../profiles/default/types/period.xml
 msgid "Period"
 msgstr "Période"
-
-#. Default: "Period Selection Field (radio buttons or select)"
-#: ../profiles/default/types/FormPeriodSelectionField.xml
-msgid "Period Selection Field (radio buttons or select)"
-msgstr "Champ de sélection de Période"
 
 #: ../profiles/default/types/period.xml
 msgid "Period of an event"
 msgstr "Période d'un événement"
 
+#: ../content/registration.py:71
+msgid "Register"
+msgstr "S'inscrire"
+
 #: ../profiles/default/types/registration.xml
 msgid "Registration"
-msgstr "Evénement avec inscriptions"
+msgstr "Événement avec inscriptions"
 
 #: ../profiles/default/types/registration.xml
 msgid "Registration activated on an event"
-msgstr "Evénements avec possibilité d'inscription"
+msgstr "Événement avec possibilité d'inscription"
 
-#: ../content/registration.py:59
+#: ../content/registration.py:57
 msgid "Registration to"
 msgstr "Inscription à"
-
-#. Default: "Period Selection Field"
-#: ../profiles/default/types/FormPeriodSelectionField.xml
-msgid "Selection Field"
-msgstr "Champ de sélection de Période"
 
 #: ../content/period.py:18
 msgid "Start date"
@@ -109,30 +103,54 @@ msgstr "Inscrit"
 msgid "Subscriber for a period of an event"
 msgstr "Inscrit pour une période d'un événement"
 
-#: ../content/registration.py:66
+#: ../interfaces.py:58
+msgid "Subscription adding"
+msgstr "Ajout d'inscrits"
+
+#: ../interfaces.py:63
+msgid "Subscription saving"
+msgstr "Sauvegarde des inscriptions"
+
+#: ../content/subscriber.py:26
+msgid "Subscription time"
+msgstr "Date & Heure d'inscription"
+
+#: ../content/subscriber.py:29
+msgid "Summary of all other informations"
+msgstr "Résumé de toutes les autres informations"
+
+#: ../content/registration.py:75
+msgid "Thank you"
+msgstr "Merci"
+
+#: ../content/registration.py:79
 msgid "Thank you for your subscription"
 msgstr "Merci pour votre inscription"
 
-#: ../content/registration.py:40
+#: ../content/registration.py:33
 msgid "The creation of registration has been cancelled"
 msgstr "La création de l'événement avec inscription a été annulée"
 
-#: ../viewlets/templates/registrationlink.pt:14
+#: ../viewlets/templates/registrationlink.pt:15
 msgid "There are no available periods for this event. Please add period(s) to allow subscriptions."
 msgstr "Il n'y a pas de période disponible pour cet événement. Veuillez ajouter une période pour activer les inscriptions."
+
+#: ../configure.zcml:34
+msgid "Uninstalls the collective.registration add-on."
+msgstr ""
 
 #: ../profiles/default/types/period.xml
 #: ../profiles/default/types/registration.xml
 msgid "View"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:18
+#: ../viewlets/templates/registrationlink.pt:19
 msgid "You can create a new period by"
 msgstr "Vous pouvez créer une période en"
 
-#: ../viewlets/templates/registrationlink.pt:25
-msgid "You can download the full list of subscribers by"
-msgstr "Vous pouvez télécharger la liste complète des inscrits en"
+#: ../viewlets/templates/registrationlink.pt:27
+msgid "You can download the list of subscribers by"
+msgstr "Vous pouvez télécharger la liste des inscrits en"
 
 #: ../viewlets/templates/registrationlink.pt:8
 msgid "You can subscribe to this event by"
@@ -142,7 +160,14 @@ msgstr "Vous pouvez vous inscrire à cet événement en"
 msgid "clicking here"
 msgstr "cliquant ici"
 
-#: ../content/fgselectionfield.py:78
+#: ../configure.zcml:25
+msgid "collective.registration"
+msgstr ""
+
+#: ../configure.zcml:34
+msgid "collective.registration (uninstall)"
+msgstr ""
+
+#: ../vocabularies.py:40
 msgid "{0} (from {1} to {2} - {3} place(s) left)"
 msgstr "{0} (du {1} au {2} - {3} place(s) disponible(s))"
-
