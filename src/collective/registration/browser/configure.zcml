@@ -13,10 +13,10 @@
     />
 
   <browser:page
-    name="available_places_validator"
-    for="*"
-    class=".subscriber.SubscriberView"
-    attribute="available_places_validator"
+    name="download_csv"
+    for="collective.registration.content.registration.IRegistration"
+    class=".easyform.EasyFormView"
+    attribute="download_csv"
     permission="zope2.View"
     />
 

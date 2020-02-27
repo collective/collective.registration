@@ -39,6 +39,7 @@
     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
     <element value="plone.app.dexterity.behaviors.id.IShortName"/>
     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+    <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
     <!--<element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />-->
     <!--<element value="plone.app.lockingbehavior.behaviors.ILocking" />-->
     <!--<element value="plone.app.dexterity.behaviors.metadata.IBasic"/>-->

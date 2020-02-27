@@ -38,8 +38,13 @@ class PeriodIntegrationTest(unittest.TestCase):
 
     def test_adding(self):
         setRoles(self.portal, TEST_USER_ID, ['Contributor'])
-        obj = api.content.create(
+        registration = api.content.create(
             container=self.portal,
+            type='registration',
+            id='registration',
+        )
+        obj = api.content.create(
+            container=registration,
             type='period',
             id='period',
         )

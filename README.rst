@@ -12,7 +12,7 @@ This products allows you to add events to which visitors can register.
 Features
 --------
 
-- Uses PloneFormGen to allow you to customize the form that visitors must fill
+- Uses EasyForm to allow you to customize the form that visitors must fill
 - Handles multiple date / time periods for events
 - Handles available places by period
 

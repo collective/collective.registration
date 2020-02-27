@@ -7,7 +7,7 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <include package="Products.PloneFormGen" />
+  <include package="collective.easyform" />
 
   <include package=".browser" />
   <include package=".content" />
@@ -38,4 +38,10 @@
       name="collective.registration-hiddenprofiles"
       />
 
+  <utility
+      component=".vocabularies.PeriodsVocabulary"
+      name="collective.registration.vocabularies.periods"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      />
+  
 </configure>

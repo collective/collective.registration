@@ -3,5 +3,5 @@
   <object name="period" meta_type="Dexterity FTI" />
   <object name="registration" meta_type="Dexterity FTI" />
   <object name="subscriber" meta_type="Dexterity FTI"/>
-  <object name="FormPeriodSelectionField" meta_type="Factory-based Type Information with dynamic views" />
+  <object name="EasyForm" meta_type="Dexterity FTI"/>
 </object>

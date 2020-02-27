@@ -19,7 +19,7 @@ class RegistrationViewlet(base.ViewletBase):
     def subscription_url(self):
         subscription = api.content.find(
             context=self.parent,
-            portal_type='FormFolder'
+            portal_type='EasyForm'
         )[0]
         return subscription.getURL()
 
@@ -36,10 +36,8 @@ class RegistrationViewlet(base.ViewletBase):
             context=self.parent,
             portal_type='period'
         )
-        periods = [period.getObject() for period in period_brains]
-
-        for period in periods:
-            if availability_registration(period):
+        for period_brain in period_brains:
+            if availability_registration(period_brain):
                 return True
         return False
 
@@ -48,11 +46,3 @@ class RegistrationViewlet(base.ViewletBase):
         if api.user.has_permission('Edit', username=current.getUserName()):
             return True
         return False
-
-    def csv_url(self):
-        registration_url = api.content.find(
-            context=self.parent,
-            portal_type='FormFolder'
-        )[0].getURL()
-        url = "{0}/csv/download".format(registration_url)
-        return url

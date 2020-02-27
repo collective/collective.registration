@@ -24,6 +24,7 @@
  <property name="behaviors">
   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
+  <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
  </property>
  <property name="schema">collective.registration.content.subscriber.ISubscriber</property>
  <property name="model_source"/>

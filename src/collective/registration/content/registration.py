@@ -1,28 +1,20 @@
 # -*- coding: utf-8 -*-
 
 from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
-from Products.TALESField._tales import Expression
+from collective.easyform.api import CONTEXT_KEY
+from collective.easyform.api import get_actions
+from collective.easyform.api import set_actions
+from collective.easyform.api import set_fields
 from collective.registration import _
 from collective.registration.interfaces import IRegistration
+from collective.registration.interfaces import IRegistrationActions
+from collective.registration.interfaces import IRegistrationForm
+from collective.registration.utils import link_translations
 from plone import api
 from plone.dexterity.content import Container
+from zope.globalrequest import getRequest
 from zope.i18n import translate
 from zope.interface import implementer
-
-
-SUBSCRIPTION_SCRIPT = """
-## Python Script
-##bind container=container
-##bind context=context
-##bind subpath=traverse_subpath
-##parameters=fields, ploneformgen, request
-##title=
-##
-ploneformgen.restrictedTraverse('add_subscriber')(ploneformgen, fields)"""
-
-AVAILABLE_PLACES_VALIDATOR = """
-python: here.restrictedTraverse('available_places_validator')(here, request, value)
-"""
 
 
 @implementer(IRegistration)
@@ -49,11 +41,17 @@ def event_add_cancelled_event(obj, event):
 def create_event_event(obj, event):
     if IRegistration.providedBy(obj.aq_parent):
         parent = obj.aq_parent
-        parent.manage_addProperty('default_page', obj.id, 'string')
+        parent.setDefaultPage(obj.id)
         create_registration_form(parent)
         behavior = ISelectableConstrainTypes(parent)
         behavior.setConstrainTypesMode(1)
         behavior.setImmediatelyAddableTypes(('period',))
+
+        request = getattr(event.object, 'REQUEST', getRequest())
+        link_translations(request, parent)
+
+        url = obj.aq_parent.absolute_url()
+        obj.REQUEST.RESPONSE.redirect(url)
 
 
 def create_registration_form(container):
@@ -62,63 +60,36 @@ def create_registration_form(container):
         _(u'Registration to'),
         target_language=current_lang,
     )
+
+    # Create & configure form
     form = api.content.create(
-        type='FormFolder',
+        type='EasyForm',
         title=u'{0} : {1}'.format(reg_text, container.Title()),
         container=container)
-    api.content.delete(obj=form['topic'])
 
-    form['thank-you'].setShowAll(False)
-    form['thank-you'].setDescription(_(u'Thank you for your subscription'))
-    form['comments'].setRequired(False)
-    form.setExcludeFromNav(1)
-    form['mailer'].setMsg_subject(_(u'Confirmation of your subscription'))
-    form['mailer'].setBody_pre(_(u'Informations about your subscription'))
-    form['mailer'].setTo_field('replyto')
-    subscriber_field = api.content.create(
-        type='FormCustomScriptAdapter',
-        title=_(u'Add subscriber'),
-        container=form
+    form.exclude_from_nav = True
+
+    set_fields(form, IRegistrationForm)
+    form.submitLabel = translate(
+        _(u'Register'),
+        target_language=current_lang,
     )
-    subscriber_field.updateScript(SUBSCRIPTION_SCRIPT, 'none')
-
-    first_name = api.content.create(
-        type='FormStringField',
-        title=_(u'First name'),
-        required=True,
-        container=form)
-
-    last_name = api.content.create(
-        type='FormStringField',
-        title=_(u'Last name'),
-        required=True,
-        container=form)
-
-    nb_people = api.content.create(
-        type='FormIntegerField',
-        title=_(u'Number of people'),
-        required=True,
-        default=0,
-        container=form)
-    value = Expression.Expression(AVAILABLE_PLACES_VALIDATOR)
-    nb_people.fgTValidator = value
-
-    period = api.content.create(
-        type='FormPeriodSelectionField',
-        title=_(u'Period'),
-        required=True,
-        container=form
+    form.thankstitle = translate(
+        _(u'Thank you'),
+        target_language=current_lang,
     )
-
-    api.content.create(
-        type='FormSaveDataAdapter',
-        title=_(u'CSV'),
-        required=True,
-        container=form
+    form.thanksdescription = translate(
+        _(u'Thank you for your subscription'),
+        target_language=current_lang,
     )
+    form.includeEmpties = False
 
-    form.moveObjectToPosition(period.id, 0)
-    form.moveObjectToPosition(first_name.id, 1)
-    form.moveObjectToPosition(last_name.id, 2)
-    form.moveObjectToPosition('replyto', 3)
-    form.moveObjectToPosition(nb_people.id, 4)
+    # Configure actions
+    IRegistrationActions.setTaggedValue(CONTEXT_KEY, form)
+    set_actions(form, IRegistrationActions)
+
+    actions = get_actions(form)
+    mailer = actions.get('mailer')
+    mailer.msg_subject = reg_text
+
+    form.reindexObject()
