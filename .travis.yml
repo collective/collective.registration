@@ -19,8 +19,6 @@ script:
   - bin/code-analysis
   - bin/test --all
 after_success:
-  - bin/createcoverage
-  - bin/pip install coverage
-  - bin/python -m coverage.pickle2json
-  - pip install coveralls
-  - coveralls
+  - bin/createcoverage --output-dir=parts/test/coverage
+  - bin/pip install -q coveralls
+  - bin/coveralls
