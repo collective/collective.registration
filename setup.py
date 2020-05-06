@@ -22,6 +22,8 @@ setup(
         "Environment :: Web Environment",
         "Framework :: Plone",
         "Framework :: Plone :: 5.0",
+        "Framework :: Plone :: 5.1",
+        "Framework :: Plone :: 5.2",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
         "Operating System :: OS Independent",
@@ -43,8 +45,8 @@ setup(
         'plone.api',
         'Products.GenericSetup>=1.8.2',
         'setuptools',
-        'Products.PloneFormGen',
-    ],
+        'collective.easyform',
+        ],
     extras_require={
         'test': [
             'plone.app.testing',
@@ -57,7 +59,5 @@ setup(
         ],
     },
     entry_points="""
-    [z3c.autoinclude.plugin]
-    target = plone
     """,
 )

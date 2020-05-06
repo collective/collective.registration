@@ -9,18 +9,20 @@ python:
   - "2.7"
 matrix:
   fast_finish: true
-install:
+before_install:
+  - sudo apt-get install -y firefox-geckodriver
   - virtualenv -p `which python` .
+install:
   - bin/pip install -r requirements.txt
   - bin/buildout -N buildout:download-cache=downloads code-analysis:return-status-codes=True annotate
   - bin/buildout -N buildout:download-cache=downloads code-analysis:return-status-codes=True
 before_script:
 - export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 - firefox -v
 script:
   - bin/code-analysis
-  - bin/test
+  - bin/test --all
 after_success:
   - bin/createcoverage
   - bin/pip install coverage

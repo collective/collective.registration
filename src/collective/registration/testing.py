@@ -22,6 +22,8 @@ class CollectiveRegistrationLayer(PloneSandboxLayer):
         self.loadZCML(package=collective.registration)
 
     def setUpPloneSite(self, portal):
+        installer = portal['portal_quickinstaller']
+        installer.installProduct('collective.registration')
         applyProfile(portal, 'collective.registration:default')
 
 

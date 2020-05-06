@@ -24,9 +24,10 @@
     <br>
     <br>
     <div tal:condition="availability_view_subscriber">
-      <span i18n:translate="">You can download the full list of subscribers by</span>
+      <span i18n:translate="">You can download the list of subscribers by</span>
       <a class="button button-download"
-         tal:attributes="href view/csv_url"
+         href=""
+         tal:attributes="href string:${context/aq_parent/absolute_url}/@@download_csv"
          i18n:translate="">clicking here</a>.
     </div>
 

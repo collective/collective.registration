@@ -5,6 +5,12 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
+- Migrate to easyform (#2)
+  [laulaz]
+
+- Various fixes & improvements
+  [laulaz]
+
 - Translate subscription form title & include event title
   [laulaz]
 

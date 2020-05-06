@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-29 08:11+0000\n"
+"POT-Creation-Date: 2019-05-13 09:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,8 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.registration\n"
 
-#: ../content/registration.py:74
-msgid "Add subscriber"
-msgstr ""
-
-#: ../content/registration.py:109
-msgid "CSV"
-msgstr ""
-
-#: ../content/registration.py:69
-msgid "Confirmation of your subscription"
+#: ../configure.zcml:25
+msgid "Add registration content allowing users subscriptions."
 msgstr ""
 
 #: ../profiles/default/types/period.xml
@@ -34,53 +26,60 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ../content/subscriber.py:27
+#: ../content/subscriber.py:21
 msgid "Email"
 msgstr ""
 
-#: ../content/period.py:22
+#: ../interfaces.py:24
+msgid "Email address"
+msgstr ""
+
+#: ../interfaces.py:46
+msgid "Email based on form inputs"
+msgstr ""
+
+#: ../interfaces.py:45
+msgid "Email response"
+msgstr ""
+
+#: ../content/period.py:20
 msgid "End date"
 msgstr ""
 
-#: ../content/registration.py:81
 #: ../content/subscriber.py:17
+#: ../interfaces.py:26
 msgid "First name"
 msgstr ""
 
-#: ../content/registration.py:70
+#: ../interfaces.py:53
 msgid "Informations about your subscription"
 msgstr ""
 
-#: ../content/registration.py:87
-#: ../content/subscriber.py:22
+#: ../content/subscriber.py:19
+#: ../interfaces.py:28
 msgid "Last name"
 msgstr ""
 
-#: ../browser/subscriber.py:36
-msgid "Not enough places left in the selected period"
-msgstr ""
-
-#: ../content/period.py:26
-msgid "Number of available places"
-msgstr ""
-
-#: ../content/registration.py:93
-#: ../content/subscriber.py:32
+#: ../content/subscriber.py:23
+#: ../interfaces.py:31
 msgid "Number of people"
 msgstr ""
 
-#: ../content/registration.py:102
+#: ../content/period.py:22
+msgid "Number of total available places"
+msgstr ""
+
+#: ../interfaces.py:35
 #: ../profiles/default/types/period.xml
 msgid "Period"
 msgstr ""
 
-#. Default: "Period Selection Field (radio buttons or select)"
-#: ../profiles/default/types/FormPeriodSelectionField.xml
-msgid "Period Selection Field (radio buttons or select)"
-msgstr ""
-
 #: ../profiles/default/types/period.xml
 msgid "Period of an event"
+msgstr ""
+
+#: ../content/registration.py:71
+msgid "Register"
 msgstr ""
 
 #: ../profiles/default/types/registration.xml
@@ -91,13 +90,8 @@ msgstr ""
 msgid "Registration activated on an event"
 msgstr ""
 
-#: ../content/registration.py:59
+#: ../content/registration.py:57
 msgid "Registration to"
-msgstr ""
-
-#. Default: "Period Selection Field"
-#: ../profiles/default/types/FormPeriodSelectionField.xml
-msgid "Selection Field"
 msgstr ""
 
 #: ../content/period.py:18
@@ -112,16 +106,40 @@ msgstr ""
 msgid "Subscriber for a period of an event"
 msgstr ""
 
-#: ../content/registration.py:66
+#: ../interfaces.py:58
+msgid "Subscription adding"
+msgstr ""
+
+#: ../interfaces.py:63
+msgid "Subscription saving"
+msgstr ""
+
+#: ../content/subscriber.py:26
+msgid "Subscription time"
+msgstr ""
+
+#: ../content/subscriber.py:29
+msgid "Summary of all other informations"
+msgstr ""
+
+#: ../content/registration.py:75
+msgid "Thank you"
+msgstr ""
+
+#: ../content/registration.py:79
 msgid "Thank you for your subscription"
 msgstr ""
 
-#: ../content/registration.py:40
+#: ../content/registration.py:33
 msgid "The creation of registration has been cancelled"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:14
+#: ../viewlets/templates/registrationlink.pt:15
 msgid "There are no available periods for this event. Please add period(s) to allow subscriptions."
+msgstr ""
+
+#: ../configure.zcml:34
+msgid "Uninstalls the collective.registration add-on."
 msgstr ""
 
 #: ../profiles/default/types/period.xml
@@ -129,12 +147,12 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:18
+#: ../viewlets/templates/registrationlink.pt:19
 msgid "You can create a new period by"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:25
-msgid "You can download the full list of subscribers by"
+#: ../viewlets/templates/registrationlink.pt:27
+msgid "You can download the list of subscribers by"
 msgstr ""
 
 #: ../viewlets/templates/registrationlink.pt:8
@@ -145,7 +163,14 @@ msgstr ""
 msgid "clicking here"
 msgstr ""
 
-#: ../content/fgselectionfield.py:78
-msgid "{0} (from {1} to {2} - {3} place(s) left)"
+#: ../configure.zcml:25
+msgid "collective.registration"
 msgstr ""
 
+#: ../configure.zcml:34
+msgid "collective.registration (uninstall)"
+msgstr ""
+
+#: ../vocabularies.py:40
+msgid "{0} (from {1} to {2} - {3} place(s) left)"
+msgstr ""

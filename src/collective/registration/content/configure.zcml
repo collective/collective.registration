@@ -29,18 +29,9 @@
     handler=".period.create_period_event"
   />
 
-  <subscriber
-    for=".period.IPeriod
-         zope.lifecycleevent.IObjectModifiedEvent"
-    handler=".period.create_period_event"
-  />
-
-
-  <utility
-    component=".fgselectionfield.PeriodVocabulary"
-    name="collective.registration.vocabularies.period"
-    provides="zope.schema.interfaces.IVocabularyFactory"
-  />
-
+  <adapter
+    factory=".period.available_places"
+    name="available_places"
+    />
 
 </configure>

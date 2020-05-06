@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-29 08:11+0000\n"
+"POT-Creation-Date: 2019-05-13 09:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,16 +14,8 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../content/registration.py:74
-msgid "Add subscriber"
-msgstr ""
-
-#: ../content/registration.py:109
-msgid "CSV"
-msgstr ""
-
-#: ../content/registration.py:69
-msgid "Confirmation of your subscription"
+#: ../configure.zcml:25
+msgid "Add registration content allowing users subscriptions."
 msgstr ""
 
 #: ../profiles/default/types/period.xml
@@ -31,94 +23,120 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ../content/subscriber.py:27
+#: ../content/subscriber.py:21
 msgid "Email"
 msgstr ""
 
-#: ../content/period.py:22
+#: ../interfaces.py:24
+msgid "Email address"
+msgstr "E-mailadres"
+
+#: ../interfaces.py:46
+msgid "Email based on form inputs"
+msgstr ""
+
+#: ../interfaces.py:45
+msgid "Email response"
+msgstr ""
+
+#: ../content/period.py:20
 msgid "End date"
-msgstr ""
+msgstr "Einddatum"
 
-#: ../content/registration.py:81
 #: ../content/subscriber.py:17
+#: ../interfaces.py:26
 msgid "First name"
-msgstr ""
+msgstr "Voornaam"
 
-#: ../content/registration.py:70
+#: ../interfaces.py:53
 msgid "Informations about your subscription"
-msgstr ""
+msgstr "Informatie over uw registratie"
 
-#: ../content/registration.py:87
-#: ../content/subscriber.py:22
+#: ../content/subscriber.py:19
+#: ../interfaces.py:28
 msgid "Last name"
-msgstr ""
+msgstr "Naam"
 
-#: ../browser/subscriber.py:36
-msgid "Not enough places left in the selected period"
-msgstr ""
-
-#: ../content/period.py:26
-msgid "Number of available places"
-msgstr ""
-
-#: ../content/registration.py:93
-#: ../content/subscriber.py:32
+#: ../content/subscriber.py:23
+#: ../interfaces.py:31
 msgid "Number of people"
-msgstr ""
+msgstr "Aantal personen"
 
-#: ../content/registration.py:102
+#: ../content/period.py:22
+msgid "Number of total available places"
+msgstr "Aantal beschikbare plaatsen"
+
+#: ../interfaces.py:35
 #: ../profiles/default/types/period.xml
 msgid "Period"
-msgstr ""
-
-#. Default: "Period Selection Field (radio buttons or select)"
-#: ../profiles/default/types/FormPeriodSelectionField.xml
-msgid "Period Selection Field (radio buttons or select)"
-msgstr ""
+msgstr "Periode"
 
 #: ../profiles/default/types/period.xml
 msgid "Period of an event"
-msgstr ""
+msgstr "Periode van een evenement"
+
+#: ../content/registration.py:71
+msgid "Register"
+msgstr "Registreren"
 
 #: ../profiles/default/types/registration.xml
 msgid "Registration"
-msgstr ""
+msgstr "Evenement met registratie"
 
 #: ../profiles/default/types/registration.xml
 msgid "Registration activated on an event"
-msgstr ""
+msgstr "Evenement met registratiemogelijkheden"
 
-#: ../content/registration.py:59
+#: ../content/registration.py:57
 msgid "Registration to"
-msgstr ""
-
-#. Default: "Period Selection Field"
-#: ../profiles/default/types/FormPeriodSelectionField.xml
-msgid "Selection Field"
-msgstr ""
+msgstr "Inschrijving voor"
 
 #: ../content/period.py:18
 msgid "Start date"
-msgstr ""
+msgstr "Begindatum"
 
 #: ../profiles/default/types/subscriber.xml
 msgid "Subscriber"
-msgstr ""
+msgstr "Registrant"
 
 #: ../profiles/default/types/subscriber.xml
 msgid "Subscriber for a period of an event"
+msgstr "Registrant voor een periode van een evenement"
+
+#: ../interfaces.py:58
+msgid "Subscription adding"
 msgstr ""
 
-#: ../content/registration.py:66
+#: ../interfaces.py:63
+msgid "Subscription saving"
+msgstr ""
+
+#: ../content/subscriber.py:26
+msgid "Subscription time"
+msgstr "Registratie datum en tijd"
+
+#: ../content/subscriber.py:29
+msgid "Summary of all other informations"
+msgstr "Samenvatting van alle andere informatie"
+
+#: ../content/registration.py:75
+msgid "Thank you"
+msgstr "Dank u"
+
+#: ../content/registration.py:79
 msgid "Thank you for your subscription"
-msgstr ""
+msgstr "Dank u voor uw registratie"
 
-#: ../content/registration.py:40
+#: ../content/registration.py:33
 msgid "The creation of registration has been cancelled"
-msgstr ""
+msgstr "De creatie van het evenement met registratie is geannuleerd"
 
-#: ../viewlets/templates/registrationlink.pt:14
+#: ../viewlets/templates/registrationlink.pt:15
 msgid "There are no available periods for this event. Please add period(s) to allow subscriptions."
+msgstr "Er is geen tijdsperiode beschikbaar voor dit evenement. Gelieve een periode toe te voegen om de registraties te activeren."
+
+#: ../configure.zcml:34
+msgid "Uninstalls the collective.registration add-on."
 msgstr ""
 
 #: ../profiles/default/types/period.xml
@@ -126,23 +144,30 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: ../viewlets/templates/registrationlink.pt:18
+#: ../viewlets/templates/registrationlink.pt:19
 msgid "You can create a new period by"
-msgstr ""
+msgstr "U kunt een periode aanmaken door"
 
-#: ../viewlets/templates/registrationlink.pt:25
-msgid "You can download the full list of subscribers by"
-msgstr ""
+#: ../viewlets/templates/registrationlink.pt:27
+msgid "You can download the list of subscribers by"
+msgstr "U kunt de lijst van registranten downloaden door"
 
 #: ../viewlets/templates/registrationlink.pt:8
 msgid "You can subscribe to this event by"
-msgstr ""
+msgstr "U kunt zich inschrijven voor dit evenement door"
 
 #: ../viewlets/templates/registrationlink.pt:9
 msgid "clicking here"
+msgstr "hier te klikken"
+
+#: ../configure.zcml:25
+msgid "collective.registration"
 msgstr ""
 
-#: ../content/fgselectionfield.py:78
+#: ../configure.zcml:34
+msgid "collective.registration (uninstall)"
+msgstr ""
+
+#: ../vocabularies.py:40
 msgid "{0} (from {1} to {2} - {3} place(s) left)"
-msgstr ""
-
+msgstr "{0} (van {1} tot {2} - {3} beschikbare plaats(en))"

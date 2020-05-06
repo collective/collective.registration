@@ -22,7 +22,7 @@
   <property name="allowed_content_types">
     <element value="period"/>
     <element value="Event"/>
-    <element value="FormFolder"/>
+    <element value="EasyForm"/>
   </property>
   <property name="filter_content_types">True</property>
   <property name="global_allow">True</property>
@@ -44,6 +44,7 @@
     <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
     <element value="plone.app.relationfield.behavior.IRelatedItems"/>
     <element value="plone.app.dexterity.behaviors.nextprevious.INextPreviousToggle"/>
+    <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   </property>
 
   <!-- View information -->

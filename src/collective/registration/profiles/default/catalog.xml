@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+
+    <index name="available_places" meta_type="FieldIndex">
+      <indexed_attr value="available_places"/>
+    </index>
+
+    <column value="available_places"/>
+
+    <index name="number_of_people" meta_type="FieldIndex">
+      <indexed_attr value="number_of_people"/>
+    </index>
+
+    <column value="number_of_people"/>
+
+</object>
