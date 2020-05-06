@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-1.0a2 (unreleased)
-------------------
+1.0 (2020-05-06)
+----------------
 
 - Migrate to easyform (#2)
   [laulaz]
