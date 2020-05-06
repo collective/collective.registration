@@ -17,7 +17,7 @@ long_description = "\n\n".join(
 setup(
     name="collective.registration",
     version="1.0a2.dev0",
-    description="An add-on for Plone",
+    description="Allow users to subscribe to events (with several periods)",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -34,7 +34,7 @@ setup(
     keywords="Python Plone",
     author="Affinitic",
     author_email="info@affinitic.be",
-    url="https://github.com/affinitic/collective.registration",
+    url="https://github.com/collective/collective.registration",
     license="GPL version 2",
     packages=find_packages("src", exclude=["ez_setup"]),
     namespace_packages=["collective"],
