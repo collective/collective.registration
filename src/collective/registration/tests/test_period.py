@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
 
+from collective.registration.content.period import IPeriod
+from collective.registration.testing import COLLECTIVE_REGISTRATION_INTEGRATION_TESTING  # noqa
 from plone import api
-from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
 from plone.dexterity.interfaces import IDexterityFTI
 from zope.component import createObject
 from zope.component import queryUtility
-import unittest
 
-from collective.registration.content.period import IPeriod
-from collective.registration.testing import (
-    COLLECTIVE_REGISTRATION_INTEGRATION_TESTING,
-)  # noqa
+import unittest
 
 
 class PeriodIntegrationTest(unittest.TestCase):
@@ -43,5 +41,5 @@ class PeriodIntegrationTest(unittest.TestCase):
         registration = api.content.create(
             container=self.portal, type="registration", id="registration",
         )
-        obj = api.content.create(container=registration, type="period", id="period",)
+        obj = api.content.create(container=registration, type="period", id="period")
         self.assertTrue(IPeriod.providedBy(obj))

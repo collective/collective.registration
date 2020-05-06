@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 SUBSCRIPTION_SCRIPT = """
 ## Python Script
 ##bind container=container

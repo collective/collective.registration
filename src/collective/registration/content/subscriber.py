@@ -23,11 +23,11 @@ class ISubscriber(model.Schema):
     number_of_people = schema.Int(title=_(u"Number of people"), required=True)
 
     subscription_date = schema.Datetime(
-        title=_(u"Subscription time"), required=True, default=datetime.now()
+        title=_(u"Subscription time"), required=True, default=datetime.now(),
     )
 
     all_informations = RichText(
-        title=_(u"Summary of all other informations"), required=False
+        title=_(u"Summary of all other informations"), required=False,
     )
 
 

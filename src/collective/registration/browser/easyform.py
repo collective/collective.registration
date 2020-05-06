@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from Products.Five import BrowserView
 from collective.easyform.api import get_actions
 from plone import api
+from Products.Five import BrowserView
 
 
 class EasyFormView(BrowserView):

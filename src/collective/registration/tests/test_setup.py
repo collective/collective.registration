@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 """Setup tests for this package."""
 
+from collective.registration.testing import COLLECTIVE_REGISTRATION_INTEGRATION_TESTING  # noqa
 from plone import api
-from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
-import unittest
+from plone.app.testing import TEST_USER_ID
 
-from collective.registration.testing import (
-    COLLECTIVE_REGISTRATION_INTEGRATION_TESTING,
-)  # noqa
+import unittest
 
 
 class TestSetup(unittest.TestCase):
@@ -40,7 +38,7 @@ class TestUninstall(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer["portal"]
         self.installer = api.portal.get_tool("portal_quickinstaller")
-        roles_before = api.user.get(userid=TEST_USER_ID).getRoles()
+        roles_before = api.user.get_roles(username=TEST_USER_ID)
         setRoles(self.portal, TEST_USER_ID, ["Manager"])
         self.installer.uninstallProducts(["collective.registration"])
         setRoles(self.portal, TEST_USER_ID, roles_before)

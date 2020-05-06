@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from Products.CMFPlone.interfaces import ILanguage
 from collective.registration.interfaces import IRegistration
 from datetime import datetime
 from plone import api
@@ -8,6 +7,7 @@ from plone.app.multilingual.interfaces import IPloneAppMultilingualInstalled
 from plone.app.multilingual.interfaces import ITranslatable
 from plone.app.multilingual.interfaces import ITranslationManager
 from plone.registry.interfaces import IRegistry
+from Products.CMFPlone.interfaces import ILanguage
 from zope.component import getUtility
 
 
@@ -52,7 +52,7 @@ def link_translations(request, registration):
                 continue
 
             trans_brains = api.content.find(
-                context=trans_registration, portal_type=portal_type
+                context=trans_registration, portal_type=portal_type,
             )
             if len(trans_brains) != 1:
                 continue

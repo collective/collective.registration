@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from plone.app.textfield.value import RichTextValue
 from collective.easyform import actions
 from collective.registration import _
 from collective.registration.config import DEFAULT_MAIL_BODY
 from collective.registration.config import SUBSCRIPTION_SCRIPT
 from plone import schema
+from plone.app.textfield.value import RichTextValue
 from plone.supermodel import model
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
@@ -28,7 +28,7 @@ class IRegistrationForm(model.Schema):
     last_name = schema.TextLine(title=_(u"Last name"), required=True)
 
     number_of_people = schema.Int(
-        title=_(u"Number of people"), required=True, default=1, min=1
+        title=_(u"Number of people"), required=True, default=1, min=1,
     )
 
     period = schema.Choice(
@@ -50,7 +50,7 @@ class IRegistrationActions(model.Schema):
         subject_field=None,
         includeEmpties=False,
         body_pre=RichTextValue(
-            _(u"Informations about your subscription"), "text/plain", "text/html"
+            _(u"Informations about your subscription"), "text/plain", "text/html",
         ),
     )
 
@@ -61,5 +61,5 @@ class IRegistrationActions(model.Schema):
     )
 
     save = actions.SaveData(
-        title=_(u"Subscription saving"), UseColumnNames=True, ExtraData=["dt"]
+        title=_(u"Subscription saving"), UseColumnNames=True, ExtraData=["dt"],
     )

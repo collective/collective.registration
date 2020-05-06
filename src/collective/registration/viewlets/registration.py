@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from plone import api
-from plone.app.layout.viewlets import common as base
-
 from collective.registration.interfaces import IRegistration
 from collective.registration.utils import availability_registration
+from plone import api
+from plone.app.layout.viewlets import common as base
 
 
 class RegistrationViewlet(base.ViewletBase):
@@ -21,7 +20,7 @@ class RegistrationViewlet(base.ViewletBase):
 
     def period_url(self):
         registration_url = api.content.find(
-            context=self.parent, portal_type="registration"
+            context=self.parent, portal_type="registration",
         )[0].getURL()
         url = "{0}/++add++period".format(registration_url)
         return url

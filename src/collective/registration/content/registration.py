@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from collective.easyform.api import CONTEXT_KEY
 from collective.easyform.api import get_actions
 from collective.easyform.api import set_actions
@@ -12,6 +11,7 @@ from collective.registration.interfaces import IRegistrationForm
 from collective.registration.utils import link_translations
 from plone import api
 from plone.dexterity.content import Container
+from Products.CMFPlone.interfaces.constrains import ISelectableConstrainTypes
 from zope.globalrequest import getRequest
 from zope.i18n import translate
 from zope.interface import implementer
@@ -56,7 +56,7 @@ def create_event_event(obj, event):
 
 def create_registration_form(container):
     current_lang = api.portal.get_current_language()
-    reg_text = translate(_(u"Registration to"), target_language=current_lang,)
+    reg_text = translate(_(u"Registration to"), target_language=current_lang)
 
     # Create & configure form
     form = api.content.create(
@@ -68,8 +68,8 @@ def create_registration_form(container):
     form.exclude_from_nav = True
 
     set_fields(form, IRegistrationForm)
-    form.submitLabel = translate(_(u"Register"), target_language=current_lang,)
-    form.thankstitle = translate(_(u"Thank you"), target_language=current_lang,)
+    form.submitLabel = translate(_(u"Register"), target_language=current_lang)
+    form.thankstitle = translate(_(u"Thank you"), target_language=current_lang)
     form.thanksdescription = translate(
         _(u"Thank you for your subscription"), target_language=current_lang,
     )

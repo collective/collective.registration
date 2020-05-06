@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from plone.dexterity.content import Container
-from plone.supermodel import model
-from zope import schema
-from plone import api
-from zope.interface import implementer
-from plone.indexer import indexer
-
 from collective.registration import _
 from collective.registration.interfaces import IRegistration
+from plone import api
+from plone.dexterity.content import Container
+from plone.indexer import indexer
+from plone.supermodel import model
+from zope import schema
+from zope.interface import implementer
 
 
 class IPeriod(model.Schema):

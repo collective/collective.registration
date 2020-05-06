@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from Products.Five import BrowserView
-from Products.PageTemplates.ZopePageTemplate import ZopePageTemplate
 from collective.easyform.actions import DummyFormView
-from collective.easyform.api import OrderedDict
 from collective.easyform.api import get_actions
 from collective.easyform.api import is_file_data
+from collective.easyform.api import OrderedDict
 from collective.easyform.browser.view import EasyFormForm
 from collective.registration.content.subscriber import ISubscriber
 from plone import api
@@ -15,6 +13,8 @@ from plone.app.multilingual.interfaces import ITranslationManager
 from plone.app.textfield.value import RichTextValue
 from plone.protect.interfaces import IDisableCSRFProtection
 from plone.registry.interfaces import IRegistry
+from Products.Five import BrowserView
+from Products.PageTemplates.ZopePageTemplate import ZopePageTemplate
 from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.schema import getFieldsInOrder
@@ -48,7 +48,7 @@ class SubscriberView(BrowserView):
         extra = {
             "data": data,
             "fields": OrderedDict(
-                [(i, j.title) for i, j in getFieldsInOrder(extra_form.schema)]
+                [(i, j.title) for i, j in getFieldsInOrder(extra_form.schema)],
             ),
             "widgets": widgets,
             "mailer": mailer,
@@ -60,7 +60,7 @@ class SubscriberView(BrowserView):
         template.write(bodyfield)
         template = template.__of__(context)
         subscriber.all_informations = RichTextValue(
-            template.pt_render(extra_context=extra)
+            template.pt_render(extra_context=extra),
         )
         subscriber.reindexObject()
 
@@ -79,7 +79,7 @@ class SubscriberView(BrowserView):
         title = "{0} {1}".format(data.get("last_name"), data.get("first_name"))
 
         subscriber = api.content.create(
-            container=period, type="subscriber", title=title
+            container=period, type="subscriber", title=title,
         )
         self.add_subscriber_in_period(context, period, subscriber, form, data)
 
@@ -97,13 +97,13 @@ class SubscriberView(BrowserView):
                 new_subscriber = api_lng.translate(subscriber, lang)
                 new_subscriber.title = title
                 self.add_subscriber_in_period(
-                    context, trans, new_subscriber, form, data
+                    context, trans, new_subscriber, form, data,
                 )
 
 
 def filter_fields(data, schema, subscriber_fields):
     data = OrderedDict(
-        [(x[0], data[x[0]]) for x in getFieldsInOrder(schema) if x[0] in data]
+        [(x[0], data[x[0]]) for x in getFieldsInOrder(schema) if x[0] in data],
     )
     fields = [f for f in data if not (is_file_data(data[f]))]
     # remove standard fields (in subscriber schema)
