@@ -16,7 +16,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.registration",
-    version='1.0',
+    version='1.0.1.dev0',
     description="Allow users to subscribe to events (with several periods)",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
