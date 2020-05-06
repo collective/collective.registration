@@ -39,7 +39,10 @@ class PeriodsVocabularyFactory(object):
                 end_date = brain.end.strftime("%d/%m/%Y")
                 string = _(u"{0} (from {1} to {2} - {3} place(s) left)")
                 value = translate(string, context=getRequest()).format(
-                    title.decode('utf-8'), start_date, end_date, str(nb_places_available)
+                    title.decode("utf-8"),
+                    start_date,
+                    end_date,
+                    str(nb_places_available),
                 )
                 item = dict()
                 item[key] = value

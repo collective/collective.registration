@@ -20,9 +20,9 @@ class CollectiveRegistrationLayer(PloneSandboxLayer):
         self.loadZCML(package=collective.registration)
 
     def setUpPloneSite(self, portal):
-        installer = portal['portal_quickinstaller']
-        installer.installProduct('collective.registration')
-        applyProfile(portal, 'collective.registration:default')
+        installer = portal["portal_quickinstaller"]
+        installer.installProduct("collective.registration")
+        applyProfile(portal, "collective.registration:default")
 
 
 COLLECTIVE_REGISTRATION_FIXTURE = CollectiveRegistrationLayer()
@@ -30,11 +30,11 @@ COLLECTIVE_REGISTRATION_FIXTURE = CollectiveRegistrationLayer()
 
 COLLECTIVE_REGISTRATION_INTEGRATION_TESTING = IntegrationTesting(
     bases=(COLLECTIVE_REGISTRATION_FIXTURE,),
-    name='CollectiveRegistrationLayer:IntegrationTesting'
+    name="CollectiveRegistrationLayer:IntegrationTesting",
 )
 
 
 COLLECTIVE_REGISTRATION_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_REGISTRATION_FIXTURE,),
-    name='CollectiveRegistrationLayer:FunctionalTesting'
+    name="CollectiveRegistrationLayer:FunctionalTesting",
 )

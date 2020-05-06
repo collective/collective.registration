@@ -21,7 +21,6 @@ from zope.schema import getFieldsInOrder
 
 
 class SubscriberView(BrowserView):
-
     def add_subscriber_in_period(self, context, period, subscriber, form, data):
         request = self.request
         subscriber.first_name = data.get("first_name")
@@ -88,7 +87,7 @@ class SubscriberView(BrowserView):
             return
 
         registry = getUtility(IRegistry)
-        langs = list(registry['plone.available_languages'])
+        langs = list(registry["plone.available_languages"])
         current_lang = api.portal.get_current_language()[:2]
         langs.remove(current_lang)
 
@@ -97,7 +96,9 @@ class SubscriberView(BrowserView):
             if trans:
                 new_subscriber = api_lng.translate(subscriber, lang)
                 new_subscriber.title = title
-                self.add_subscriber_in_period(context, trans, new_subscriber, form, data)
+                self.add_subscriber_in_period(
+                    context, trans, new_subscriber, form, data
+                )
 
 
 def filter_fields(data, schema, subscriber_fields):

@@ -26,7 +26,9 @@ class ISubscriber(model.Schema):
         title=_(u"Subscription time"), required=True, default=datetime.now()
     )
 
-    all_informations = RichText(title=_(u"Summary of all other informations"), required=False)
+    all_informations = RichText(
+        title=_(u"Summary of all other informations"), required=False
+    )
 
 
 @implementer(ISubscriber)

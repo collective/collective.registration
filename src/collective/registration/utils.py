@@ -29,7 +29,7 @@ def link_translations(request, registration):
         return
 
     registry = getUtility(IRegistry)
-    langs = list(registry['plone.available_languages'])
+    langs = list(registry["plone.available_languages"])
     current_lang = api.portal.get_current_language()[:2]
     langs.remove(current_lang)
 
@@ -51,7 +51,9 @@ def link_translations(request, registration):
             if trans:
                 continue
 
-            trans_brains = api.content.find(context=trans_registration, portal_type=portal_type)
+            trans_brains = api.content.find(
+                context=trans_registration, portal_type=portal_type
+            )
             if len(trans_brains) != 1:
                 continue
 

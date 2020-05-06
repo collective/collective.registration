@@ -60,4 +60,6 @@ class IRegistrationActions(model.Schema):
         ScriptBody=SUBSCRIPTION_SCRIPT,
     )
 
-    save = actions.SaveData(title=_(u"Subscription saving"), UseColumnNames=True, ExtraData=["dt"])
+    save = actions.SaveData(
+        title=_(u"Subscription saving"), UseColumnNames=True, ExtraData=["dt"]
+    )
